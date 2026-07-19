@@ -1,0 +1,16 @@
+{
+    "name": "Listora.ng",
+    "short_name": "Listora",
+    "description": "Simple Nigerian property listings.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#F7F9FC",
+    "theme_color": "#0B2A5B",
+    "orientation": "portrait-primary",
+    "icons": [
+        { "src": "/images/icons/listora-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "/images/icons/listora-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+        { "src": "/images/icons/listora-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
+}

@@ -1,0 +1,4 @@
+<x-layouts.public>
+    @section('title', 'Join Listora | Guided onboarding arrives in Sprint 2')
+    <section id="agents" class="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6 md:py-24"><span class="mx-auto flex size-14 items-center justify-center rounded-xl bg-[#EEF4FF] text-[#155EEF]"><x-icon name="users" class="size-7" /></span><h1 class="mt-6 text-3xl font-bold tracking-tight text-[#172033]">Guided onboarding arrives in Sprint 2</h1><p class="mx-auto mt-4 max-w-xl leading-7 text-[#667085]">Agent verification, landlord and tenant registration will use short, role-specific steps. No account has been created yet.</p><div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><a href="{{ route('home') }}" class="btn-secondary">Back home</a><button type="button" @click="openLogin()" class="btn-primary">Sign in to an existing account</button></div></section>
+</x-layouts.public>
