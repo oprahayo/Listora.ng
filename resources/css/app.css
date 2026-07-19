@@ -1,5 +1,29 @@
 @import 'tailwindcss';
 
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
 @source '../views/**/*.blade.php';
 @source '../js/**/*.js';
 @source '../../app/**/*.php';
@@ -7,7 +31,7 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --color-brand-dark: #0B2A5B;
     --color-brand: #155EEF;
     --color-brand-hover: #0E4CC9;
@@ -15,6 +39,12 @@
 
 @layer base {
     *, ::before, ::after { border-color: #E4E7EC; }
+    html {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-synthesis: none;
+    }
+    body { font-size: .875rem; font-weight: 400; }
+    h1, h2, h3, h4, h5, h6, strong, b { font-weight: 600; }
     button, a, input, select { -webkit-tap-highlight-color: transparent; }
     button:not(:disabled), [role='button']:not([aria-disabled='true']) { cursor: pointer; }
     :focus-visible { outline-color: #155EEF; }
@@ -27,10 +57,10 @@
         min-height: 2.5rem;
         align-items: center;
         border-radius: .5rem;
-        padding: 0 .75rem;
+        padding: 0 .6rem;
         color: #D7E4FA;
         font-size: .875rem;
-        font-weight: 600;
+        font-weight: 500;
         transition: background-color 150ms ease, color 150ms ease;
     }
     .nav-link:hover { background: rgb(255 255 255 / .1); color: white; }
@@ -77,8 +107,8 @@
         justify-content: center;
         gap: .2rem;
         color: #667085;
-        font-size: .68rem;
-        font-weight: 650;
+        font-size: .72rem;
+        font-weight: 500;
     }
     .mobile-nav-item svg { width: 1.3rem; height: 1.3rem; }
     .btn-primary {
@@ -91,8 +121,8 @@
         background: #155EEF;
         padding: .7rem 1.15rem;
         color: white;
-        font-size: .9rem;
-        font-weight: 700;
+        font-size: .875rem;
+        font-weight: 500;
         transition: background-color 150ms ease, transform 150ms ease;
     }
     .btn-primary:hover { background: #0E4CC9; }
@@ -108,12 +138,12 @@
         background: white;
         padding: .7rem 1.15rem;
         color: #0B2A5B;
-        font-size: .9rem;
-        font-weight: 700;
+        font-size: .875rem;
+        font-weight: 500;
         transition: border-color 150ms ease, background-color 150ms ease;
     }
     .btn-secondary:hover { border-color: #155EEF; background: #F8FAFF; }
-    .form-label { display: block; margin-bottom: .4rem; color: #344054; font-size: .875rem; font-weight: 650; }
+    .form-label { display: block; margin-bottom: .4rem; color: #344054; font-size: .8125rem; font-weight: 500; }
     .form-input {
         display: block;
         width: 100%;
@@ -123,12 +153,12 @@
         background: white;
         padding: .7rem .85rem;
         color: #172033;
-        font-size: 1rem;
+        font-size: .875rem;
         transition: border-color 150ms ease, box-shadow 150ms ease;
     }
     .form-input:focus { border-color: #155EEF; outline: none; box-shadow: 0 0 0 3px rgb(21 94 239 / .13); }
-    .form-error { margin-top: .35rem; color: #D92D20; font-size: .8rem; font-weight: 550; }
-    .filter-label { display: block; margin-bottom: .45rem; color: #344054; font-size: .82rem; font-weight: 700; }
+    .form-error { margin-top: .35rem; color: #D92D20; font-size: .8rem; font-weight: 500; }
+    .filter-label { display: block; margin-bottom: .45rem; color: #344054; font-size: .8125rem; font-weight: 600; }
     .filter-input {
         min-height: 2.75rem;
         width: 100%;
@@ -140,12 +170,37 @@
         font-size: .875rem;
     }
     .filter-input:focus { border-color: #155EEF; outline: none; box-shadow: 0 0 0 3px rgb(21 94 239 / .1); }
+
+    .home-featured-track {
+        display: flex;
+        gap: .75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .home-featured-track::-webkit-scrollbar { display: none; }
+    .home-featured-track > .property-card {
+        width: min(78vw, 18rem);
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
 }
 
 @media (min-width: 768px) {
+    body { font-size: 1rem; }
+    .home-featured-track {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow: visible;
+    }
+    .home-featured-track > .property-card { width: auto; }
     .view-list .property-card { display: grid; grid-template-columns: minmax(230px, 38%) 1fr; }
     .view-list .property-card > div:first-child { aspect-ratio: auto; min-height: 215px; }
     .view-list .property-card > div:last-child { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+    .home-featured-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

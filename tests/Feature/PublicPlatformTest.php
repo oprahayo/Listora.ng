@@ -95,6 +95,10 @@ class PublicPlatformTest extends TestCase
 
         $this->get('/manifest.webmanifest')->assertOk()->assertHeader('content-type', 'application/manifest+json');
         $this->get('/service-worker.js')->assertOk()->assertHeader('content-type', 'application/javascript');
+        $serviceWorker = file_get_contents(public_path('service-worker.js'));
+        $this->assertStringContainsString("const VERSION = 'v2';", $serviceWorker);
+        $this->assertStringContainsString('networkFirstPage(request)', $serviceWorker);
+        $this->assertStringNotContainsString('sprint', strtolower($serviceWorker));
         $this->get('/offline')->assertOk()->assertSee('You’re offline');
         $this->get('/sitemap.xml')->assertOk()->assertSee('<urlset', false);
     }

@@ -22,7 +22,7 @@
 </head>
 <body x-data="listoraApp()" x-init="init()" class="min-h-screen bg-[#F7F9FC] text-[#172033] antialiased">
     <a href="#main-content" class="sr-only z-[100] rounded-md bg-white p-3 text-[#0B2A5B] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
-    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-semibold text-[#8A4B00]" role="status"><x-icon name="wifi-off" class="size-4" />You’re offline. Saved pages may be available; prices and availability may be out of date.</div>
+    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-medium text-[#8A4B00]" role="status"><x-icon name="wifi-off" class="size-4" />You’re offline. Saved pages may be available; prices and availability may be out of date.</div>
     <x-public-header />
     <main id="main-content">{{ $slot }}</main>
     <x-public-footer />

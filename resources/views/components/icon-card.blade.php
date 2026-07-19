@@ -1,11 +1,11 @@
 @props(['icon', 'title', 'href', 'subtitle' => null])
 
-<a href="{{ $href }}" class="group flex min-h-36 flex-col justify-between rounded-xl border border-[#D7E2F4] bg-white p-5 shadow-[0_8px_24px_rgba(11,42,91,0.05)] transition hover:-translate-y-0.5 hover:border-[#155EEF] hover:shadow-[0_12px_30px_rgba(11,42,91,0.10)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#155EEF]">
-    <span class="flex size-12 items-center justify-center rounded-lg bg-[#EEF4FF] text-[#155EEF] transition group-hover:bg-[#155EEF] group-hover:text-white">
-        <x-icon :name="$icon" class="size-7" />
+<a href="{{ $href }}" class="group flex min-h-20 flex-col items-center justify-center gap-2 rounded-lg border border-[#DFE7F3] bg-[#F7FAFF] p-2 text-center transition hover:border-[#9BB9EC] hover:bg-[#EEF4FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#155EEF] md:min-h-24 md:gap-3 md:p-3">
+    <span class="flex size-9 items-center justify-center rounded-lg bg-[#EEF4FF] text-[#155EEF] transition group-hover:bg-[#DCE9FF] md:size-10">
+        <x-icon :name="$icon" class="size-8 md:size-9" />
     </span>
     <span>
-        <span class="block text-base font-semibold text-[#172033]">{{ $title }}</span>
-        @if($subtitle)<span class="mt-1 block text-sm text-[#667085]">{{ $subtitle }}</span>@endif
+        <span class="block text-xs font-medium leading-tight text-[#344054] md:text-sm">{{ $title }}</span>
+        @if($subtitle)<span class="mt-1 hidden text-xs text-[#667085] md:block">{{ $subtitle }}</span>@endif
     </span>
 </a>

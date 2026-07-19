@@ -21,9 +21,7 @@ class OtpController extends Controller
         $dispatcher->request($identifier, $validated['role']);
 
         return response()->json([
-            'message' => app()->isLocal()
-                ? 'A development OTP was written to the application log.'
-                : 'If the details are eligible, an OTP will arrive shortly.',
+            'message' => 'OTP sign-in is currently unavailable.',
         ]);
     }
 }

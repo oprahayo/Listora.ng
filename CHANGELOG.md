@@ -20,6 +20,11 @@ All notable changes to Listora.ng are documented here.
 - Setup, deployment, PWA and performance documentation
 - Public GitHub Pages frontend preview and reproducible static export script
 
+### Changed
+
+- Refined the public UI with self-hosted Inter typography, compact mobile search and category navigation, swipeable homepage listings, calmer desktop spacing and customer-facing unavailable states
+- Versioned the public service-worker cache, removed superseded Listora caches on activation and changed public navigations to network-first delivery
+
 ### Security
 
 - Added CSRF protection and network-only CSRF refresh for cached public pages

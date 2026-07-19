@@ -4,9 +4,9 @@
         <a href="{{ route('properties.index') }}" class="mobile-nav-item {{ request()->routeIs('properties.*') ? 'text-[#155EEF]' : '' }}"><x-icon name="search" /><span>Browse</span></a>
         <a href="{{ route('saved') }}" class="mobile-nav-item {{ request()->routeIs('saved') ? 'text-[#155EEF]' : '' }}"><x-icon name="bookmark" /><span>Saved</span></a>
         @guest
-            <button type="button" @click="openLogin()" class="mobile-nav-item"><x-icon name="user" /><span>Sign in</span></button>
+            <button type="button" @click="openLogin()" class="mobile-nav-item"><x-icon name="user" /><span>Account</span></button>
         @else
-            <form action="{{ route('logout') }}" method="POST">@csrf<button class="mobile-nav-item w-full"><x-icon name="user" /><span>Sign out</span></button></form>
+            <form action="{{ route('logout') }}" method="POST">@csrf<button class="mobile-nav-item w-full"><x-icon name="user" /><span>Account</span></button></form>
         @endguest
     </div>
 </nav>

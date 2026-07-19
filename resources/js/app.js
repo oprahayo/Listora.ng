@@ -29,7 +29,7 @@ Alpine.data('listoraApp', () => ({
         window.addEventListener('online', () => { this.online = true; });
         window.addEventListener('offline', () => { this.online = false; });
 
-        if ('serviceWorker' in navigator && import.meta.env.PROD && !STATIC_PREVIEW) {
+        if ('serviceWorker' in navigator && import.meta.env.PROD) {
             window.addEventListener('load', () => navigator.serviceWorker.register(appPath('/service-worker.js')).catch(() => {}));
         }
     },
@@ -129,7 +129,7 @@ Alpine.data('listoraApp', () => ({
     async submitLogin(form) {
         if (!this.online) return;
         if (STATIC_PREVIEW) {
-            this.loginErrors = { identifier: 'This public link is a frontend preview. Run Laravel locally to test authentication.' };
+            this.loginErrors = { identifier: 'Sign in is currently unavailable. Please try again later.' };
             return;
         }
         this.loginLoading = true;
@@ -167,7 +167,7 @@ Alpine.data('listoraApp', () => ({
     async requestOtp(form) {
         if (!this.online) return;
         if (STATIC_PREVIEW) {
-            this.loginErrors = { identifier: 'OTP requests require the local Laravel application.' };
+            this.loginErrors = { identifier: 'OTP sign-in is currently unavailable.' };
             return;
         }
         this.loginLoading = true;

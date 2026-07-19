@@ -24,6 +24,7 @@ File::ensureDirectoryExists($output);
 File::copyDirectory($projectRoot.'/public/build', $output.'/build');
 File::copyDirectory($projectRoot.'/public/images', $output.'/images');
 File::copy($projectRoot.'/public/favicon.ico', $output.'/favicon.ico');
+File::copy($projectRoot.'/public/service-worker.js', $output.'/service-worker.js');
 
 $manifest = str_replace('"/images/', '"/Listora.ng/images/', File::get($projectRoot.'/public/manifest.webmanifest'));
 File::put($output.'/manifest.webmanifest', $manifest);
