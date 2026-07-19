@@ -1,0 +1,316 @@
+{
+    "properties": [
+        {
+            "id": 1,
+            "title": "Bright Apartment in Yaba",
+            "rent": "₦2,800,000/year",
+            "location": "Yaba, Lagos",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-yaba-1/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Apartment in Yaba",
+            "verified": true,
+            "facts": [
+                "2 bed",
+                "2 bath"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Quiet Self Contain in Gwarinpa",
+            "rent": "₦800,000/year",
+            "location": "Gwarinpa, Abuja",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-self-contain-in-gwarinpa-2/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/self-contain-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Self Contain in Gwarinpa",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Well-kept Duplex in Old GRA",
+            "rent": "₦7,800,000/year",
+            "location": "Old GRA, Port Harcourt",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-duplex-in-old-gra-3/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/duplex-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Duplex in Old GRA",
+            "verified": false,
+            "facts": [
+                "4 bed",
+                "3 bath"
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Spacious Shared Flat in Bodija",
+            "rent": "₦1,350,000/year",
+            "location": "Bodija, Ibadan",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-bodija-4/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Shared Flat in Bodija",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Bright Shop in Adebayo",
+            "rent": "₦1,200,000/year",
+            "location": "Adebayo, Ado-Ekiti",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-shop-in-adebayo-5/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shop-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Shop in Adebayo",
+            "verified": true,
+            "facts": []
+        },
+        {
+            "id": 6,
+            "title": "Quiet Office in Yaba",
+            "rent": "₦3,650,000/year",
+            "location": "Yaba, Lagos",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-office-in-yaba-6/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/office-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Office in Yaba",
+            "verified": false,
+            "facts": []
+        },
+        {
+            "id": 7,
+            "title": "Well-kept Apartment in Gwarinpa",
+            "rent": "₦3,100,000/year",
+            "location": "Gwarinpa, Abuja",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-gwarinpa-7/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Apartment in Gwarinpa",
+            "verified": true,
+            "facts": [
+                "2 bed",
+                "2 bath"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Spacious Self Contain in Old GRA",
+            "rent": "₦1,100,000/year",
+            "location": "Old GRA, Port Harcourt",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-self-contain-in-old-gra-8/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/self-contain-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Self Contain in Old GRA",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Bright Duplex in Bodija",
+            "rent": "₦7,500,000/year",
+            "location": "Bodija, Ibadan",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-duplex-in-bodija-9/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/duplex-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Duplex in Bodija",
+            "verified": false,
+            "facts": [
+                "4 bed",
+                "3 bath"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Quiet Shared Flat in Adebayo",
+            "rent": "₦1,050,000/year",
+            "location": "Adebayo, Ado-Ekiti",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-adebayo-10/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Shared Flat in Adebayo",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 11,
+            "title": "Well-kept Shop in Yaba",
+            "rent": "₦1,500,000/year",
+            "location": "Yaba, Lagos",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-shop-in-yaba-11/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shop-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Shop in Yaba",
+            "verified": true,
+            "facts": []
+        },
+        {
+            "id": 12,
+            "title": "Spacious Office in Gwarinpa",
+            "rent": "₦3,950,000/year",
+            "location": "Gwarinpa, Abuja",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-office-in-gwarinpa-12/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/office-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Office in Gwarinpa",
+            "verified": false,
+            "facts": []
+        },
+        {
+            "id": 13,
+            "title": "Bright Apartment in Old GRA",
+            "rent": "₦2,800,000/year",
+            "location": "Old GRA, Port Harcourt",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-old-gra-13/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Apartment in Old GRA",
+            "verified": true,
+            "facts": [
+                "2 bed",
+                "2 bath"
+            ]
+        },
+        {
+            "id": 14,
+            "title": "Quiet Self Contain in Bodija",
+            "rent": "₦800,000/year",
+            "location": "Bodija, Ibadan",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-self-contain-in-bodija-14/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/self-contain-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Self Contain in Bodija",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 15,
+            "title": "Well-kept Duplex in Adebayo",
+            "rent": "₦7,800,000/year",
+            "location": "Adebayo, Ado-Ekiti",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-duplex-in-adebayo-15/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/duplex-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Duplex in Adebayo",
+            "verified": false,
+            "facts": [
+                "4 bed",
+                "3 bath"
+            ]
+        },
+        {
+            "id": 16,
+            "title": "Spacious Shared Flat in Yaba",
+            "rent": "₦1,350,000/year",
+            "location": "Yaba, Lagos",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-yaba-16/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Shared Flat in Yaba",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 17,
+            "title": "Bright Shop in Gwarinpa",
+            "rent": "₦1,200,000/year",
+            "location": "Gwarinpa, Abuja",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-shop-in-gwarinpa-17/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shop-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Shop in Gwarinpa",
+            "verified": true,
+            "facts": []
+        },
+        {
+            "id": 18,
+            "title": "Quiet Office in Old GRA",
+            "rent": "₦3,650,000/year",
+            "location": "Old GRA, Port Harcourt",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-office-in-old-gra-18/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/office-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Office in Old GRA",
+            "verified": false,
+            "facts": []
+        },
+        {
+            "id": 19,
+            "title": "Well-kept Apartment in Bodija",
+            "rent": "₦3,100,000/year",
+            "location": "Bodija, Ibadan",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-bodija-19/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Apartment in Bodija",
+            "verified": true,
+            "facts": [
+                "2 bed",
+                "2 bath"
+            ]
+        },
+        {
+            "id": 20,
+            "title": "Spacious Self Contain in Adebayo",
+            "rent": "₦1,100,000/year",
+            "location": "Adebayo, Ado-Ekiti",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-self-contain-in-adebayo-20/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/self-contain-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Self Contain in Adebayo",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 21,
+            "title": "Bright Duplex in Yaba",
+            "rent": "₦7,500,000/year",
+            "location": "Yaba, Lagos",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/bright-duplex-in-yaba-21/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/duplex-1-thumb.webp",
+            "image_alt": "Demonstration view of Bright Duplex in Yaba",
+            "verified": false,
+            "facts": [
+                "4 bed",
+                "3 bath"
+            ]
+        },
+        {
+            "id": 22,
+            "title": "Quiet Shared Flat in Gwarinpa",
+            "rent": "₦1,050,000/year",
+            "location": "Gwarinpa, Abuja",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-gwarinpa-22/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp",
+            "image_alt": "Demonstration view of Quiet Shared Flat in Gwarinpa",
+            "verified": true,
+            "facts": [
+                "1 bed",
+                "1 bath"
+            ]
+        },
+        {
+            "id": 23,
+            "title": "Well-kept Shop in Old GRA",
+            "rent": "₦1,500,000/year",
+            "location": "Old GRA, Port Harcourt",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/well-kept-shop-in-old-gra-23/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/shop-1-thumb.webp",
+            "image_alt": "Demonstration view of Well-kept Shop in Old GRA",
+            "verified": true,
+            "facts": []
+        },
+        {
+            "id": 24,
+            "title": "Spacious Office in Bodija",
+            "rent": "₦3,950,000/year",
+            "location": "Bodija, Ibadan",
+            "url": "https://oprahayo.github.io/Listora.ng/properties/spacious-office-in-bodija-24/",
+            "image": "https://oprahayo.github.io/Listora.ng/images/properties/office-1-thumb.webp",
+            "image_alt": "Demonstration view of Spacious Office in Bodija",
+            "verified": false,
+            "facts": []
+        }
+    ]
+}

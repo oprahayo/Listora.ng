@@ -18,6 +18,7 @@ All notable changes to Listora.ng are documented here.
 - SEO titles/descriptions, canonical and Open Graph tags, property JSON-LD, sitemap and robots policy
 - Automated feature/unit tests and responsive browser acceptance screenshots
 - Setup, deployment, PWA and performance documentation
+- Public GitHub Pages frontend preview and reproducible static export script
 
 ### Security
 

@@ -20,6 +20,14 @@ Completed:
 
 No Sprint 2 work is included.
 
+## Public frontend preview
+
+The frontend-only GitHub Pages preview is published at:
+
+**https://oprahayo.github.io/Listora.ng/**
+
+GitHub Pages cannot execute PHP, so this preview contains statically exported public pages. Browsing, responsive layouts, property details, modal interactions and device-local saves work. Authentication, OTP, live filters and other Laravel endpoints must be tested locally.
+
 ## Requirements
 
 - PHP 8.3 or newer with `pdo_mysql`, `mbstring`, `openssl`, `fileinfo` and `gd`
@@ -106,6 +114,12 @@ Production assets:
 
 ```bash
 npm run build
+```
+
+Regenerate the committed GitHub Pages preview after public frontend changes:
+
+```bash
+php scripts/export_static_preview.php
 ```
 
 The production build must exist in `public/build` before deployment. Vite is only used to compile local assets.

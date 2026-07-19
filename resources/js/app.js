@@ -1,6 +1,9 @@
 import Alpine from 'alpinejs';
 
 const SAVED_KEY = 'listora.guest-saved-properties.v1';
+const STATIC_PREVIEW = window.location.hostname === 'oprahayo.github.io' && window.location.pathname.startsWith('/Listora.ng');
+const APP_BASE = STATIC_PREVIEW ? '/Listora.ng' : '';
+const appPath = path => `${APP_BASE}${path}`;
 
 Alpine.data('listoraApp', () => ({
     online: navigator.onLine,
@@ -26,8 +29,8 @@ Alpine.data('listoraApp', () => ({
         window.addEventListener('online', () => { this.online = true; });
         window.addEventListener('offline', () => { this.online = false; });
 
-        if ('serviceWorker' in navigator && import.meta.env.PROD) {
-            window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js').catch(() => {}));
+        if ('serviceWorker' in navigator && import.meta.env.PROD && !STATIC_PREVIEW) {
+            window.addEventListener('load', () => navigator.serviceWorker.register(appPath('/service-worker.js')).catch(() => {}));
         }
     },
 
@@ -64,11 +67,17 @@ Alpine.data('listoraApp', () => ({
         try {
             const params = new URLSearchParams();
             this.savedIds.forEach(id => params.append('ids[]', id));
-            const response = await fetch(`/saved/property-summaries?${params}`, { headers: { Accept: 'application/json' } });
+            const endpoint = STATIC_PREVIEW
+                ? appPath('/data/properties.json')
+                : appPath(`/saved/property-summaries?${params}`);
+            const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
             if (!response.ok) throw new Error('Unable to load saved properties.');
             const data = await response.json();
-            this.savedProperties = data.properties;
-            this.savedIds = data.valid_ids.map(Number);
+            const properties = STATIC_PREVIEW
+                ? this.savedIds.map(id => data.properties.find(property => property.id === id)).filter(Boolean)
+                : data.properties;
+            this.savedProperties = properties;
+            this.savedIds = (STATIC_PREVIEW ? properties.map(property => property.id) : data.valid_ids).map(Number);
             localStorage.setItem(SAVED_KEY, JSON.stringify(this.savedIds));
         } catch {
             this.showToast(this.online ? 'Saved properties could not be refreshed.' : 'Reconnect to refresh saved properties.');
@@ -88,8 +97,10 @@ Alpine.data('listoraApp', () => ({
     },
 
     async refreshCsrfToken() {
+        if (STATIC_PREVIEW) return;
+
         try {
-            const response = await fetch('/auth/csrf-token', { headers: { Accept: 'application/json' } });
+            const response = await fetch(appPath('/auth/csrf-token'), { headers: { Accept: 'application/json' } });
             if (!response.ok) return;
             const { token } = await response.json();
             document.querySelector('meta[name="csrf-token"]')?.setAttribute('content', token);
@@ -117,6 +128,10 @@ Alpine.data('listoraApp', () => ({
 
     async submitLogin(form) {
         if (!this.online) return;
+        if (STATIC_PREVIEW) {
+            this.loginErrors = { identifier: 'This public link is a frontend preview. Run Laravel locally to test authentication.' };
+            return;
+        }
         this.loginLoading = true;
         this.loginErrors = {};
         try {
@@ -151,6 +166,10 @@ Alpine.data('listoraApp', () => ({
 
     async requestOtp(form) {
         if (!this.online) return;
+        if (STATIC_PREVIEW) {
+            this.loginErrors = { identifier: 'OTP requests require the local Laravel application.' };
+            return;
+        }
         this.loginLoading = true;
         this.loginErrors = {};
         this.loginMessage = '';
