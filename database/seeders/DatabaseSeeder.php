@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'phone' => $data['phone'],
-                'role' => 'agent',
+                'primary_role' => 'agent',
                 'password' => 'password',
             ]);
 
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Chika Tenant',
             'email' => 'tenant@listora.test',
             'phone' => '2348015550104',
-            'role' => 'tenant',
+            'primary_role' => 'tenant',
             'password' => 'password',
         ]);
 
@@ -52,7 +52,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'Musa Landlord',
             'email' => 'landlord@listora.test',
             'phone' => '2348075550105',
-            'role' => 'landlord',
+            'primary_role' => 'landlord',
+            'password' => 'password',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Listora Administrator',
+            'email' => 'admin@listora.test',
+            'phone' => '2348085550106',
+            'primary_role' => 'admin',
             'password' => 'password',
         ]);
 

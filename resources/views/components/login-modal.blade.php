@@ -8,16 +8,9 @@
         <span class="flex size-10 items-center justify-center rounded-lg bg-[#EAF2FF] text-[#145FCC]"><x-icon name="lock" class="size-5" /></span>
         <h2 id="login-title" class="mt-3 text-xl font-semibold tracking-tight text-[#182230]">Sign in</h2>
 
-        <div class="mt-4 grid grid-cols-3 gap-1 rounded-lg bg-[#F2F4F7] p-1" role="tablist" aria-label="Choose account role">
-            @foreach(['agent' => 'Agent', 'landlord' => 'Landlord', 'tenant' => 'Tenant'] as $value => $label)
-                <button type="button" @click="loginRole = '{{ $value }}'; loginErrors = {}" :class="loginRole === '{{ $value }}' ? 'bg-white text-[#0A2856] shadow-sm' : 'text-[#667085]'" class="min-h-10 rounded-md px-2 text-sm font-medium transition" role="tab" :aria-selected="loginRole === '{{ $value }}'">{{ $label }}</button>
-            @endforeach
-        </div>
-
-        <form action="{{ route('login.store') }}" method="POST" @submit.prevent="submitLogin($el)" novalidate class="mt-4">
+        <form x-show="loginMode === 'password'" action="{{ route('login.store') }}" method="POST" @submit.prevent="submitLogin($el)" novalidate class="mt-4">
             @csrf
-            <input type="hidden" name="role" :value="loginRole">
-            <input type="hidden" name="return_to" :value="window.location.pathname + window.location.search">
+            <input type="hidden" name="intent" :value="loginIntent || ''">
             <div>
                 <label for="login-identifier" class="form-label">Email or phone</label>
                 <input x-ref="loginIdentifier" id="login-identifier" name="identifier" autocomplete="username" inputmode="email" class="form-input" :class="loginErrors.identifier ? 'border-[#C92A2A]' : ''" placeholder="you@example.com or 080…" required>
@@ -36,7 +29,21 @@
             <button type="submit" :disabled="loginLoading || !online" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Sign In</span><span x-show="loginLoading">Signing in…</span></button>
         </form>
 
-        <button type="button" disabled class="mt-3 flex min-h-11 w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-[#D0D5DD] bg-white px-4 text-sm font-medium text-[#667085]" title="OTP sign-in is currently unavailable">Sign in with OTP <span class="sr-only">— currently unavailable</span></button>
+        <button x-show="loginMode === 'password'" type="button" @click="loginMode = 'otp'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.otpIdentifier?.focus())" class="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#D0D5DD] bg-white px-4 text-sm font-medium text-[#344054] transition hover:border-[#98A2B3] hover:bg-[#F8FAFC]">Sign in with OTP</button>
+
+        <form x-cloak x-show="loginMode === 'otp'" action="{{ route('otp.request') }}" method="POST" @submit.prevent="requestOtp($el)" novalidate class="mt-4">
+            @csrf
+            <div>
+                <label for="otp-identifier" class="form-label">Email or phone</label>
+                <input x-ref="otpIdentifier" id="otp-identifier" name="identifier" autocomplete="username" inputmode="email" class="form-input" :class="loginErrors.identifier ? 'border-[#C92A2A]' : ''" placeholder="you@example.com or 080…" required>
+                <p x-show="loginErrors.identifier" x-text="loginErrors.identifier" class="form-error"></p>
+            </div>
+            <p x-show="loginMessage" x-text="loginMessage" class="mt-3 rounded-lg bg-[#EAF2FF] p-3 text-sm text-[#0A2856]" role="status"></p>
+            <p x-show="!online" class="mt-3 flex items-start gap-2 rounded-lg bg-[#FFF4E8] p-3 text-sm text-[#B75D00]"><x-icon name="wifi-off" class="mt-0.5 size-4 shrink-0" />Reconnect to request a code.</p>
+            <button type="submit" :disabled="loginLoading || !online" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Request OTP</span><span x-show="loginLoading">Requesting…</span></button>
+            <button type="button" @click="loginMode = 'password'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.loginIdentifier?.focus())" class="mt-2 min-h-11 w-full text-sm font-medium text-[#145FCC] hover:text-[#0E4DA9]">Use password instead</button>
+        </form>
+
         <p class="mt-4 text-center text-sm text-[#667085]">New to Listora? <a href="{{ route('join') }}" class="font-medium text-[#145FCC] hover:text-[#0E4DA9]">Create account</a></p>
     </section>
 </div>

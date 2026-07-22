@@ -17,6 +17,13 @@ class UserFactory extends Factory
      */
     protected static ?string $password;
 
+    public function configure(): static
+    {
+        return $this->afterCreating(function (User $user): void {
+            $user->assignRole($user->primary_role);
+        });
+    }
+
     /**
      * Define the model's default state.
      *
@@ -31,7 +38,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'phone_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
-            'role' => 'tenant',
+            'primary_role' => 'tenant',
+            'account_status' => 'active',
             'remember_token' => Str::random(10),
         ];
     }

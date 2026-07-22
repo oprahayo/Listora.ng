@@ -18,7 +18,7 @@ class OtpController extends Controller
             ? Str::lower($validated['identifier'])
             : PhoneNormalizer::normalize($validated['identifier']);
 
-        $dispatcher->request($identifier, $validated['role']);
+        $dispatcher->request($identifier);
 
         return response()->json([
             'message' => 'OTP sign-in is currently unavailable.',

@@ -6,7 +6,7 @@
         @guest
             <button type="button" @click="openLogin()" class="mobile-nav-item"><x-icon name="user" /><span>Account</span></button>
         @else
-            <form action="{{ route('logout') }}" method="POST">@csrf<button class="mobile-nav-item w-full"><x-icon name="user" /><span>Account</span></button></form>
+            <a href="{{ route('dashboard') }}" class="mobile-nav-item {{ request()->routeIs('dashboard', '*.dashboard', 'workspace.*') ? 'text-[#145FCC]' : '' }}"><x-icon name="user" /><span>Account</span></a>
         @endguest
     </div>
 </nav>

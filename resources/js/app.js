@@ -8,7 +8,7 @@ const appPath = path => `${APP_BASE}${path}`;
 Alpine.data('listoraApp', () => ({
     online: navigator.onLine,
     loginOpen: false,
-    loginRole: 'tenant',
+    loginIntent: null,
     loginMode: 'password',
     loginLoading: false,
     loginErrors: {},
@@ -87,9 +87,11 @@ Alpine.data('listoraApp', () => ({
         }
     },
 
-    openLogin(role = 'tenant') {
+    openLogin(options = {}) {
         this.previousFocus = document.activeElement;
-        this.loginRole = ['agent', 'landlord', 'tenant'].includes(role) ? role : 'tenant';
+        const intent = typeof options === 'object' && options !== null ? options.intent : null;
+        this.loginIntent = ['list-property', 'chat', 'save-sync', 'dashboard'].includes(intent) ? intent : null;
+        this.loginMode = 'password';
         this.loginErrors = {};
         this.loginMessage = '';
         this.loginOpen = true;
@@ -114,6 +116,8 @@ Alpine.data('listoraApp', () => ({
     closeLogin() {
         if (this.loginLoading) return;
         this.loginOpen = false;
+        this.loginMode = 'password';
+        this.loginIntent = null;
         this.$nextTick(() => this.previousFocus?.focus?.());
     },
 
@@ -169,7 +173,7 @@ Alpine.data('listoraApp', () => ({
                 return;
             }
             await this.notifyAuthState();
-            window.location.assign(data.redirect || '/');
+            window.location.assign(data.redirect || appPath('/dashboard'));
         } catch {
             this.loginErrors = { identifier: 'Unable to reach Listora. Check your connection and try again.' };
         } finally {

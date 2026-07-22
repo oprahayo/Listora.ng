@@ -10,13 +10,13 @@ use Illuminate\Support\Str;
 
 final class LogOtpDispatcher implements OtpDispatcher
 {
-    public function request(string $identifier, string $role): void
+    public function request(string $identifier): void
     {
         $code = (string) random_int(100000, 999999);
-        $key = 'otp:'.hash('sha256', Str::lower($identifier).'|'.$role);
+        $key = 'otp:'.hash('sha256', Str::lower($identifier));
 
         Cache::put($key, password_hash($code, PASSWORD_DEFAULT), now()->addMinutes(5));
-        Log::notice('Listora OTP dispatch', ['identifier' => $identifier, 'role' => $role, 'code' => $code]);
+        Log::notice('Listora OTP dispatch', ['identifier' => $identifier, 'code' => $code]);
         RateLimiter::hit('otp-issued:'.hash('sha256', $identifier), 300);
     }
 }

@@ -28,18 +28,33 @@ class LoginRequest extends FormRequest
                 },
             ],
             'password' => ['required', 'string', 'min:8', 'max:255'],
-            'role' => ['required', Rule::in(['agent', 'landlord', 'tenant'])],
             'remember' => ['nullable', 'boolean'],
+            'intent' => ['nullable', 'string', Rule::in(['list-property', 'chat', 'save-sync', 'dashboard'])],
             'return_to' => [
                 'nullable',
                 'string',
                 'max:500',
                 function (string $attribute, mixed $value, Closure $fail): void {
-                    if (! str_starts_with($value, '/') || str_starts_with($value, '//')) {
+                    $allowedPrefixes = ['/agent/', '/landlord/', '/tenant/', '/admin/'];
+                    $isAllowed = $value === '/dashboard'
+                        || collect($allowedPrefixes)->contains(fn (string $prefix): bool => str_starts_with($value, $prefix));
+
+                    if (! str_starts_with($value, '/') || str_starts_with($value, '//') || ! $isAllowed) {
                         $fail('The return location is invalid.');
                     }
                 },
             ],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $identifier = trim((string) $this->input('identifier'));
+
+        $this->merge([
+            'identifier' => filter_var($identifier, FILTER_VALIDATE_EMAIL)
+                ? strtolower($identifier)
+                : $identifier,
+        ]);
     }
 }

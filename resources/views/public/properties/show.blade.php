@@ -80,7 +80,7 @@
 
                     <div class="mt-4 hidden lg:block">
                         <button type="button" disabled aria-disabled="true" title="Inspection booking is currently unavailable." class="btn-primary w-full cursor-not-allowed opacity-60"><x-icon name="calendar" class="size-5" />Book Inspection</button>
-                        @guest<button type="button" @click="openLogin('tenant')" :disabled="!online" class="btn-secondary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><x-icon name="chat" class="size-5" />Chat with Agent</button>@else<button type="button" @click="showToast('Secure chat is currently unavailable.')" class="btn-secondary mt-3 w-full"><x-icon name="chat" class="size-5" />Chat with Agent</button>@endguest
+                        @guest<button type="button" @click="openLogin({ intent: 'chat' })" :disabled="!online" class="btn-secondary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><x-icon name="chat" class="size-5" />Chat with Agent</button>@else<button type="button" @click="showToast('Secure chat is currently unavailable.')" class="btn-secondary mt-3 w-full"><x-icon name="chat" class="size-5" />Chat with Agent</button>@endguest
                         <div class="mt-3 grid grid-cols-2 gap-2">
                             <button type="button" @click="toggleSaved({{ $property->id }})" :aria-pressed="isSaved({{ $property->id }})" class="btn-secondary min-h-11 px-3" aria-label="Save property">
                                 <x-icon name="heart" class="size-5" x-bind:fill="isSaved({{ $property->id }}) ? 'currentColor' : 'none'" />
@@ -98,6 +98,6 @@
 
     <div class="fixed inset-x-0 bottom-0 z-30 grid grid-cols-2 gap-2 border-t border-[#E4E7EC] bg-white px-3 py-2 pb-[max(.5rem,env(safe-area-inset-bottom))] shadow-[0_-4px_16px_rgba(10,40,86,.08)] lg:hidden">
         <button type="button" disabled aria-disabled="true" title="Inspection booking is currently unavailable." class="btn-primary min-h-12 cursor-not-allowed px-3 opacity-60"><x-icon name="calendar" class="size-4" />Book Inspection</button>
-        @guest<button type="button" @click="openLogin('tenant')" :disabled="!online" class="btn-secondary min-h-12 px-3 disabled:opacity-60"><x-icon name="chat" class="size-4" />Chat</button>@else<button type="button" @click="showToast('Secure chat is currently unavailable.')" class="btn-secondary min-h-12 px-3"><x-icon name="chat" class="size-4" />Chat</button>@endguest
+        @guest<button type="button" @click="openLogin({ intent: 'chat' })" :disabled="!online" class="btn-secondary min-h-12 px-3 disabled:opacity-60"><x-icon name="chat" class="size-4" />Chat</button>@else<button type="button" @click="showToast('Secure chat is currently unavailable.')" class="btn-secondary min-h-12 px-3"><x-icon name="chat" class="size-4" />Chat</button>@endguest
     </div>
 </x-layouts.public>

@@ -40,16 +40,28 @@
                 @guest
                     <button type="button" @click="openLogin()" class="header-icon" aria-label="Sign in to use messages" aria-disabled="true" title="Sign in to use messages"><x-icon name="chat" class="size-5" /></button>
                     <button type="button" @click="openLogin()" class="hidden h-10 shrink-0 items-center whitespace-nowrap rounded-lg border border-white/35 px-3 text-sm font-medium transition hover:bg-white/10 lg:inline-flex">Sign In</button>
-                    <button type="button" @click="openLogin('agent')" class="hidden h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg bg-[#145FCC] px-3 text-sm font-medium transition hover:bg-[#0E4DA9] xl:inline-flex"><x-icon name="plus" class="size-4" />List Property</button>
+                    <button type="button" @click="openLogin({ intent: 'list-property' })" class="hidden h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg bg-[#145FCC] px-3 text-sm font-medium transition hover:bg-[#0E4DA9] xl:inline-flex"><x-icon name="plus" class="size-4" />List Property</button>
                 @else
-                    <span class="hidden max-w-32 truncate text-sm font-medium lg:inline">{{ auth()->user()->name }}</span>
-                    <form action="{{ route('logout') }}" method="POST">@csrf<button class="h-10 rounded-lg border border-white/35 px-3 text-sm font-medium hover:bg-white/10">Sign out</button></form>
+                    <div x-data="{ profileOpen: false }" @click.outside="profileOpen = false" @keydown.escape.window="profileOpen = false" class="relative">
+                        <button type="button" @click="profileOpen = !profileOpen" :aria-expanded="profileOpen" class="flex h-10 max-w-48 items-center gap-2 rounded-lg border border-white/30 px-3 text-sm font-medium hover:bg-white/10" aria-haspopup="menu">
+                            <x-icon name="user" class="size-4 shrink-0" />
+                            <span class="truncate">{{ auth()->user()->name }}</span>
+                            <x-icon name="chevron-down" class="size-3.5 shrink-0" />
+                        </button>
+                        <div x-cloak x-show="profileOpen" x-transition class="absolute right-0 top-12 z-50 w-52 rounded-lg border border-[#E4E7EC] bg-white p-2 text-[#182230] shadow-xl" role="menu">
+                            <a href="{{ route('dashboard') }}" class="menu-link" role="menuitem"><x-icon name="home" />Dashboard</a>
+                            @if(auth()->user()->roles()->count() > 1)
+                                <a href="{{ route('workspace.index') }}" class="menu-link" role="menuitem"><x-icon name="users" />Switch workspace</a>
+                            @endif
+                            <form action="{{ route('logout') }}" method="POST">@csrf<button class="menu-link w-full" role="menuitem"><x-icon name="arrow-left" />Sign out</button></form>
+                        </div>
+                    </div>
                 @endguest
             </div>
 
             <div class="flex items-center gap-1 md:hidden">
                 <a href="{{ route('properties.index', ['city' => 'Lagos']) }}" class="inline-flex min-h-10 items-center gap-1 rounded-lg px-2 text-[13px] font-medium text-[#EAF1FC] hover:bg-white/10" aria-label="Browse properties in Lagos"><span>Lagos</span><x-icon name="chevron-down" class="size-3.5" /></a>
-                @guest<button type="button" @click="openLogin()" class="header-icon" aria-label="Sign in"><x-icon name="user" class="size-5" /></button>@else<a href="{{ route('home') }}" class="header-icon" aria-label="Account"><x-icon name="user" class="size-5" /></a>@endguest
+                @guest<button type="button" @click="openLogin()" class="header-icon" aria-label="Sign in"><x-icon name="user" class="size-5" /></button>@else<a href="{{ route('dashboard') }}" class="header-icon" aria-label="Account"><x-icon name="user" class="size-5" /></a>@endguest
                 <button type="button" @click="mobileMenuOpen = true" class="header-icon" aria-label="Open menu"><x-icon name="menu" class="size-5" /></button>
             </div>
         </div>
@@ -75,7 +87,15 @@
                 <a class="menu-link" href="{{ route('join') }}#agents"><x-icon name="users" />For Agents</a>
                 <a class="menu-link" href="{{ route('home') }}#how-it-works"><x-icon name="info" />How It Works</a>
             </nav>
-            @guest<button @click="mobileMenuOpen = false; openLogin()" class="btn-primary mt-8 w-full">Sign In</button>@endguest
+            @guest
+                <button @click="mobileMenuOpen = false; openLogin()" class="btn-primary mt-8 w-full">Sign In</button>
+            @else
+                <div class="mt-8 grid gap-2 border-t border-[#E4E7EC] pt-5">
+                    <a class="menu-link" href="{{ route('dashboard') }}"><x-icon name="home" />Dashboard</a>
+                    @if(auth()->user()->roles()->count() > 1)<a class="menu-link" href="{{ route('workspace.index') }}"><x-icon name="users" />Switch workspace</a>@endif
+                    <form action="{{ route('logout') }}" method="POST">@csrf<button class="menu-link w-full"><x-icon name="arrow-left" />Sign out</button></form>
+                </div>
+            @endguest
         </div>
     </div>
 </header>

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Domain\Auth\Contracts\OtpDispatcher;
 use App\Domain\Auth\LogOtpDispatcher;
+use App\Domain\Auth\PhoneNormalizer;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -28,13 +29,19 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useTailwind();
 
         RateLimiter::for('login', function (Request $request) {
-            $identifier = strtolower((string) $request->input('identifier'));
+            $input = (string) $request->input('identifier');
+            $identifier = filter_var($input, FILTER_VALIDATE_EMAIL)
+                ? strtolower($input)
+                : (PhoneNormalizer::normalize($input) ?? strtolower($input));
 
             return Limit::perMinute(5)->by($identifier.'|'.$request->ip());
         });
 
         RateLimiter::for('otp', function (Request $request) {
-            $identifier = strtolower((string) $request->input('identifier'));
+            $input = (string) $request->input('identifier');
+            $identifier = filter_var($input, FILTER_VALIDATE_EMAIL)
+                ? strtolower($input)
+                : (PhoneNormalizer::normalize($input) ?? strtolower($input));
 
             return Limit::perMinute(3)->by($identifier.'|'.$request->ip());
         });

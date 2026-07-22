@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-63sk6_gO.css",
+    "file": "assets/app-BP2o6tdp.css",
     "name": "app",
     "names": [
       "app.css"
@@ -26,7 +26,7 @@
     "src": "resources/fonts/Roboto-SemiBold.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-C4QaM5Y6.js",
+    "file": "assets/app-BbMsTEz4.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

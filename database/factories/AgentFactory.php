@@ -15,7 +15,7 @@ class AgentFactory extends Factory
         $name = fake()->name();
 
         return [
-            'user_id' => User::factory()->state(['role' => 'agent']),
+            'user_id' => User::factory()->state(['primary_role' => 'agent']),
             'public_slug' => Str::slug($name).'-'.fake()->unique()->numberBetween(100, 999),
             'display_name' => $name,
             'verification_status' => 'verified',

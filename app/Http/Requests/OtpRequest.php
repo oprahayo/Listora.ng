@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use App\Domain\Auth\PhoneNormalizer;
 use Closure;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class OtpRequest extends FormRequest
 {
@@ -27,7 +26,6 @@ class OtpRequest extends FormRequest
                     }
                 },
             ],
-            'role' => ['required', Rule::in(['agent', 'landlord', 'tenant'])],
         ];
     }
 }
