@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Domain\Audit\AuditLogger;
 use App\Domain\Auth\DashboardResolver;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
@@ -23,16 +24,19 @@ class WorkspaceController extends Controller
         return view('auth.workspace', ['roles' => $roles]);
     }
 
-    public function switch(Request $request, DashboardResolver $resolver): RedirectResponse
+    public function switch(Request $request, DashboardResolver $resolver, AuditLogger $audit): RedirectResponse
     {
         $validated = $request->validate([
             'role' => ['required', 'string', Rule::in(Role::NAMES)],
         ]);
 
-        return redirect()->to($resolver->switchTo(
+        $destination = $resolver->switchTo(
             $request->user(),
             $request->session(),
             $validated['role'],
-        ));
+        );
+        $audit->record('workspace_switched', $request->user(), $request->user(), ['role' => $validated['role']]);
+
+        return redirect()->to($destination);
     }
 }

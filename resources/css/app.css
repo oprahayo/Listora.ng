@@ -178,6 +178,14 @@
         font-size: .875rem;
     }
     .filter-input:focus { border-color: #145FCC; outline: none; box-shadow: 0 0 0 3px rgb(20 95 204 / .1); }
+    .choice-card { display: block; cursor: pointer; }
+    .choice-card-content { display: flex; min-height: 3.5rem; align-items: center; gap: .75rem; border: 1px solid #D0D5DD; border-radius: .6rem; background: white; padding: .75rem; color: #344054; font-size: .875rem; transition: border-color 150ms ease, background-color 150ms ease; }
+    .choice-card input:checked + .choice-card-content { border-color: #145FCC; background: #EAF2FF; color: #0A2856; box-shadow: 0 0 0 1px #145FCC; }
+    .choice-card-icon { display: flex; width: 2.5rem; height: 2.5rem; flex: 0 0 auto; align-items: center; justify-content: center; border-radius: .55rem; background: #EAF2FF; color: #145FCC; }
+    .choice-card-icon svg { width: 1.35rem; height: 1.35rem; }
+    .onboarding-shell { margin-inline: auto; max-width: 40rem; padding: 1.5rem 1rem 2rem; }
+    .onboarding-panel { border: 1px solid #D7E2F4; border-radius: .75rem; background: white; padding: 1.25rem; box-shadow: 0 3px 14px rgb(10 40 86 / .06); }
+    .dashboard-shell { margin-inline: auto; max-width: 73.75rem; padding: 2rem 1rem; }
 
     .home-featured-track {
         display: flex;
@@ -207,6 +215,9 @@
     .view-list .property-card { display: grid; grid-template-columns: minmax(230px, 38%) 1fr; }
     .view-list .property-card > div:first-child { aspect-ratio: auto; min-height: 215px; }
     .view-list .property-card > div:last-child { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; }
+    .onboarding-shell { padding: 2.5rem 1.5rem; }
+    .onboarding-panel { padding: 1.75rem; }
+    .dashboard-shell { padding: 3rem 1.5rem; }
 }
 
 @media (min-width: 1024px) {

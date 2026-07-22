@@ -45,7 +45,7 @@ class SessionController extends Controller
         /** @var User $user */
         $user = $request->user()->load('roles');
 
-        if ($user->roles->isEmpty()) {
+        if ($user->roles->isEmpty() || in_array($user->status, ['suspended', 'deactivated'], true)) {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -60,6 +60,18 @@ class SessionController extends Controller
             }
 
             return back()->withErrors(['identifier' => $message])->withInput($request->except('password'));
+        }
+
+        $user->forceFill(['last_login_at' => now()])->save();
+
+        if (! $user->phone_verified_at) {
+            $redirect = route('phone.verify');
+
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Verify your phone to continue.', 'redirect' => $redirect]);
+            }
+
+            return redirect()->to($redirect);
         }
 
         $redirect = $resolver->initializeWorkspace(

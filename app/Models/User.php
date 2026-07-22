@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,9 +13,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'phone', 'password', 'primary_role', 'last_active_role', 'account_status'])]
+#[Fillable([
+    'name', 'email', 'phone', 'password', 'primary_role', 'last_active_role', 'status',
+    'last_login_at', 'onboarding_completed_at',
+])]
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
@@ -30,13 +33,25 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'phone_verified_at' => 'datetime',
+            'last_login_at' => 'datetime',
+            'onboarding_completed_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
 
     public function agent(): HasOne
     {
-        return $this->hasOne(Agent::class);
+        return $this->hasOne(AgentProfile::class);
+    }
+
+    public function landlordProfile(): HasOne
+    {
+        return $this->hasOne(LandlordProfile::class);
+    }
+
+    public function tenantProfile(): HasOne
+    {
+        return $this->hasOne(TenantProfile::class);
     }
 
     public function roles(): BelongsToMany
@@ -46,7 +61,27 @@ class User extends Authenticatable
 
     public function invitations(): HasMany
     {
-        return $this->hasMany(AccountInvitation::class);
+        return $this->hasMany(Invitation::class, 'accepted_by');
+    }
+
+    public function sentInvitations(): HasMany
+    {
+        return $this->hasMany(Invitation::class, 'invited_by');
+    }
+
+    public function verificationRequests(): HasMany
+    {
+        return $this->hasMany(VerificationRequest::class);
+    }
+
+    public function organizationMemberships(): HasMany
+    {
+        return $this->hasMany(OrganizationMember::class);
+    }
+
+    public function auditLogs(): HasMany
+    {
+        return $this->hasMany(AuditLog::class);
     }
 
     public function hasRole(string $role): bool

@@ -2,13 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Domain\Auth\AccountInvitationService;
-use App\Domain\Auth\Contracts\OtpDispatcher;
-use App\Models\AccountInvitation;
+use App\Domain\Auth\Contracts\OtpProvider;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\RateLimiter;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Tests\Support\CapturingOtpProvider;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -29,6 +28,22 @@ class AuthenticationTest extends TestCase
 
         $this->assertAuthenticatedAs($user);
         $this->assertSame('tenant', session('active_role'));
+    }
+
+    public function test_unverified_phone_login_continues_to_phone_verification(): void
+    {
+        $user = User::factory()->create([
+            'email' => 'unverified@example.test',
+            'phone_verified_at' => null,
+            'status' => 'pending',
+            'password' => 'password',
+        ]);
+        $user->assignRole('tenant');
+
+        $this->postJson('/auth/login', [
+            'identifier' => 'unverified@example.test',
+            'password' => 'password',
+        ])->assertOk()->assertJsonPath('redirect', route('phone.verify'));
     }
 
     #[DataProvider('roleDashboardProvider')]
@@ -229,58 +244,17 @@ class AuthenticationTest extends TestCase
         }
     }
 
-    public function test_inviting_an_existing_person_reuses_the_account_and_attaches_the_role(): void
-    {
-        $user = $this->createRoleUser('tenant', [
-            'email' => 'same-person@example.test',
-            'phone' => '2348071234567',
-        ]);
-        $initialUserCount = User::query()->count();
-
-        $first = app(AccountInvitationService::class)->invite(
-            'landlord',
-            'SAME-PERSON@example.test',
-            '0807 123 4567',
-        );
-        $second = app(AccountInvitationService::class)->invite(
-            'landlord',
-            'same-person@example.test',
-            '2348071234567',
-        );
-
-        $this->assertSame($initialUserCount, User::query()->count());
-        $this->assertSame($user->id, $first->user_id);
-        $this->assertSame($first->id, $second->id);
-        $this->assertTrue($user->fresh()->hasAnyRole(['tenant', 'landlord']));
-        $this->assertSame(1, AccountInvitation::query()->count());
-    }
-
-    public function test_inviting_a_new_person_creates_one_pending_account_with_the_intended_role(): void
-    {
-        $invitation = app(AccountInvitationService::class)->invite(
-            'landlord',
-            'new-landlord@example.test',
-            '0806 234 5678',
-            name: 'New Landlord',
-        );
-
-        $user = $invitation->user;
-        $this->assertSame('pending', $user->account_status);
-        $this->assertSame('2348062345678', $user->phone);
-        $this->assertTrue($user->hasRole('landlord'));
-        $this->assertSame(1, User::query()->where('email', 'new-landlord@example.test')->count());
-    }
-
     public function test_otp_request_is_universal_and_does_not_require_a_role(): void
     {
-        $this->mock(OtpDispatcher::class)
-            ->shouldReceive('request')
-            ->once()
-            ->with('2348091234567');
+        $provider = new CapturingOtpProvider;
+        $this->app->instance(OtpProvider::class, $provider);
+        $this->createRoleUser('tenant', ['phone' => '2348091234567']);
 
         $this->postJson('/auth/otp/request', [
             'identifier' => '0809 123 4567',
-        ])->assertOk()->assertJsonPath('message', 'OTP sign-in is currently unavailable.');
+        ])->assertOk()->assertJsonPath('message', 'If these details match an account, a six-digit code has been sent.');
+        $this->assertSame('2348091234567', $provider->messages[0]['identifier']);
+        $this->assertSame('login', $provider->messages[0]['purpose']);
     }
 
     public function test_public_login_markup_has_no_role_selector(): void

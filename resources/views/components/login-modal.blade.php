@@ -31,7 +31,7 @@
 
         <button x-show="loginMode === 'password'" type="button" @click="loginMode = 'otp'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.otpIdentifier?.focus())" class="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#D0D5DD] bg-white px-4 text-sm font-medium text-[#344054] transition hover:border-[#98A2B3] hover:bg-[#F8FAFC]">Sign in with OTP</button>
 
-        <form x-cloak x-show="loginMode === 'otp'" action="{{ route('otp.request') }}" method="POST" @submit.prevent="requestOtp($el)" novalidate class="mt-4">
+        <form x-cloak x-show="loginMode === 'otp' && !otpRequested" action="{{ route('otp.request') }}" method="POST" @submit.prevent="requestOtp($el)" novalidate class="mt-4">
             @csrf
             <div>
                 <label for="otp-identifier" class="form-label">Email or phone</label>
@@ -42,6 +42,15 @@
             <p x-show="!online" class="mt-3 flex items-start gap-2 rounded-lg bg-[#FFF4E8] p-3 text-sm text-[#B75D00]"><x-icon name="wifi-off" class="mt-0.5 size-4 shrink-0" />Reconnect to request a code.</p>
             <button type="submit" :disabled="loginLoading || !online" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Request OTP</span><span x-show="loginLoading">Requesting…</span></button>
             <button type="button" @click="loginMode = 'password'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.loginIdentifier?.focus())" class="mt-2 min-h-11 w-full text-sm font-medium text-[#145FCC] hover:text-[#0E4DA9]">Use password instead</button>
+        </form>
+
+        <form x-cloak x-show="loginMode === 'otp' && otpRequested" action="{{ route('otp.confirm') }}" method="POST" @submit.prevent="confirmOtp($el)" class="mt-4">
+            @csrf
+            <input type="hidden" name="identifier" :value="otpIdentifier">
+            <p x-show="loginMessage" x-text="loginMessage" class="rounded-lg bg-[#EAF2FF] p-3 text-sm text-[#0A2856]" role="status"></p>
+            <div class="mt-3"><label for="login-otp-code" class="form-label">Six-digit code</label><input id="login-otp-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" class="form-input h-14 text-center text-2xl tracking-[.5em]" required><p x-show="loginErrors.code" x-text="loginErrors.code" class="form-error"></p></div>
+            <button type="submit" :disabled="loginLoading || !online || {{ request()->getHost() === 'oprahayo.github.io' ? 'true' : 'false' }}" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Verify and sign in</span><span x-show="loginLoading">Checking…</span></button>
+            <button type="button" @click="otpRequested = false; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.otpIdentifier?.focus())" class="mt-2 min-h-11 w-full text-sm font-medium text-[#145FCC]">Change details or resend</button>
         </form>
 
         <p class="mt-4 text-center text-sm text-[#667085]">New to Listora? <a href="{{ route('join') }}" class="font-medium text-[#145FCC] hover:text-[#0E4DA9]">Create account</a></p>

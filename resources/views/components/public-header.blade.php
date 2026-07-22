@@ -42,6 +42,10 @@
                     <button type="button" @click="openLogin()" class="hidden h-10 shrink-0 items-center whitespace-nowrap rounded-lg border border-white/35 px-3 text-sm font-medium transition hover:bg-white/10 lg:inline-flex">Sign In</button>
                     <button type="button" @click="openLogin({ intent: 'list-property' })" class="hidden h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg bg-[#145FCC] px-3 text-sm font-medium transition hover:bg-[#0E4DA9] xl:inline-flex"><x-icon name="plus" class="size-4" />List Property</button>
                 @else
+                    <a href="{{ route('notifications.index') }}" class="header-icon" aria-label="Notifications" title="Notifications">
+                        <x-icon name="bell" class="size-5" />
+                        @if(auth()->user()->unreadNotifications()->count())<span class="absolute -right-1 -top-1 min-w-4 rounded-full bg-white px-1 text-center text-[10px] font-semibold text-[#0A2856]">{{ min(99, auth()->user()->unreadNotifications()->count()) }}</span>@endif
+                    </a>
                     <div x-data="{ profileOpen: false }" @click.outside="profileOpen = false" @keydown.escape.window="profileOpen = false" class="relative">
                         <button type="button" @click="profileOpen = !profileOpen" :aria-expanded="profileOpen" class="flex h-10 max-w-48 items-center gap-2 rounded-lg border border-white/30 px-3 text-sm font-medium hover:bg-white/10" aria-haspopup="menu">
                             <x-icon name="user" class="size-4 shrink-0" />
@@ -92,6 +96,7 @@
             @else
                 <div class="mt-8 grid gap-2 border-t border-[#E4E7EC] pt-5">
                     <a class="menu-link" href="{{ route('dashboard') }}"><x-icon name="home" />Dashboard</a>
+                    <a class="menu-link" href="{{ route('notifications.index') }}"><x-icon name="bell" />Notifications @if(auth()->user()->unreadNotifications()->count())<span class="ml-auto rounded-full bg-[#EAF2FF] px-2 py-0.5 text-xs text-[#145FCC]">{{ auth()->user()->unreadNotifications()->count() }}</span>@endif</a>
                     @if(auth()->user()->roles()->count() > 1)<a class="menu-link" href="{{ route('workspace.index') }}"><x-icon name="users" />Switch workspace</a>@endif
                     <form action="{{ route('logout') }}" method="POST">@csrf<button class="menu-link w-full"><x-icon name="arrow-left" />Sign out</button></form>
                 </div>

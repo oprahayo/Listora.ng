@@ -8,8 +8,8 @@
                 <h2 id="agent-card-title" class="truncate text-[15px] font-semibold text-[#182230]">{{ $agent->display_name }}</h2>
                 @if($agent->isVerified())<x-status-badge type="verified" icon="shield-check">Verified</x-status-badge>@endif
             </div>
-            <p class="mt-1 truncate text-[13px] text-[#667085]">{{ $agent->primary_location }} property professional</p>
+            <p class="mt-1 truncate text-[13px] text-[#667085]">{{ collect([$agent->operating_city, $agent->operating_state])->filter()->join(', ') }} property professional</p>
         </div>
     </div>
-    <button type="button" disabled aria-disabled="true" title="Agent profile is currently unavailable" class="mt-3 inline-flex min-h-10 items-center gap-1 text-sm font-medium text-[#667085]">View profile <x-icon name="chevron-right" class="size-4" /></button>
+    <a href="{{ route('agents.show', $agent) }}" class="mt-3 inline-flex min-h-10 items-center gap-1 text-sm font-medium text-[#145FCC]">View profile <x-icon name="chevron-right" class="size-4" /></a>
 </section>

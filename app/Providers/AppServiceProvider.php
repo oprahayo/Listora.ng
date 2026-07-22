@@ -2,9 +2,15 @@
 
 namespace App\Providers;
 
-use App\Domain\Auth\Contracts\OtpDispatcher;
-use App\Domain\Auth\LogOtpDispatcher;
+use App\Domain\Auth\Contracts\OtpProvider;
+use App\Domain\Auth\LogOtpProvider;
 use App\Domain\Auth\PhoneNormalizer;
+use App\Domain\Auth\ProductionOtpProvider;
+use App\Domain\Invitations\Contracts\InvitationDelivery;
+use App\Domain\Invitations\LogInvitationDelivery;
+use App\Domain\Invitations\ProductionInvitationDelivery;
+use App\Domain\Verification\Contracts\CacVerificationProvider;
+use App\Domain\Verification\ManualCacVerificationProvider;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -18,7 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(OtpDispatcher::class, LogOtpDispatcher::class);
+        $this->app->bind(OtpProvider::class, fn () => config('listora.otp_provider') === 'log' && app()->environment(['local', 'testing'])
+            ? new LogOtpProvider
+            : new ProductionOtpProvider);
+        $this->app->bind(CacVerificationProvider::class, ManualCacVerificationProvider::class);
+        $this->app->bind(InvitationDelivery::class, fn () => config('listora.invitation_delivery') === 'log' && app()->environment(['local', 'testing'])
+            ? new LogInvitationDelivery
+            : new ProductionInvitationDelivery);
     }
 
     /**

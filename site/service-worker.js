@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'listora-public';
-const VERSION = 'v3';
+const VERSION = 'v4';
 const STATIC_CACHE = `${CACHE_PREFIX}-${VERSION}-static`;
 const PUBLIC_CACHE = `${CACHE_PREFIX}-${VERSION}-public`;
 const CURRENT_CACHES = [STATIC_CACHE, PUBLIC_CACHE];
@@ -35,7 +35,18 @@ self.addEventListener('message', event => {
 
 const isNetworkOnly = url =>
     relativePath(url).startsWith('/auth/') ||
-    relativePath(url).startsWith('/logout') ||
+    relativePath(url).startsWith('/register') ||
+    relativePath(url).startsWith('/verify-phone') ||
+    relativePath(url).startsWith('/onboarding') ||
+    relativePath(url).startsWith('/dashboard') ||
+    relativePath(url).startsWith('/workspace') ||
+    relativePath(url).startsWith('/agent/') ||
+    relativePath(url).startsWith('/landlord/') ||
+    relativePath(url).startsWith('/tenant/') ||
+    relativePath(url).startsWith('/admin/') ||
+    relativePath(url).startsWith('/notifications') ||
+    relativePath(url).startsWith('/verification-documents') ||
+    relativePath(url).startsWith('/invitations/') ||
     relativePath(url).startsWith('/api/') ||
     relativePath(url).startsWith('/payments') ||
     relativePath(url).startsWith('/chat');

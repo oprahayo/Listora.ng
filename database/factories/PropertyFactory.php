@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Agent;
+use App\Models\AgentProfile;
 use App\Models\Property;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -17,7 +17,7 @@ class PropertyFactory extends Factory
         $title = fake()->randomElement(['Bright', 'Quiet', 'Spacious', 'Modern']).' '.str($type)->headline().' in '.$area;
 
         return [
-            'agent_id' => Agent::factory(),
+            'agent_id' => AgentProfile::factory(),
             'title' => $title,
             'slug' => Str::slug($title).'-'.fake()->unique()->numberBetween(1000, 9999),
             'property_type' => $type,

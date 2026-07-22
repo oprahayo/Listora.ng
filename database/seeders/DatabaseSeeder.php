@@ -2,11 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Agent;
+use App\Models\AgentProfile;
+use App\Models\Invitation;
+use App\Models\LandlordProfile;
 use App\Models\Property;
+use App\Models\TenantProfile;
 use App\Models\User;
+use App\Models\VerificationDocument;
+use App\Models\VerificationRequest;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,52 +24,143 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $demoPassword = app()->environment('production') ? Str::random(48) : 'password';
+        $userFor = function (array $attributes, string $role) use ($demoPassword): User {
+            $user = User::query()->where('email', $attributes['email'])->orWhere('phone', $attributes['phone'])->first() ?: new User;
+            $user->forceFill([
+                'name' => $attributes['name'],
+                'email' => $attributes['email'],
+                'phone' => $attributes['phone'],
+                'primary_role' => $role,
+                'status' => 'active',
+                'email_verified_at' => now(),
+                'phone_verified_at' => now(),
+                'password' => $demoPassword,
+            ])->save();
+            $user->assignRole($role);
+
+            return $user;
+        };
         $agents = collect([
             ['name' => 'Adaeze Okafor', 'email' => 'adaeze@listora.test', 'phone' => '2348035550101', 'slug' => 'adaeze-okafor', 'location' => 'Lagos', 'status' => 'verified'],
             ['name' => 'Tunde Afolabi', 'email' => 'tunde@listora.test', 'phone' => '2348065550102', 'slug' => 'tunde-afolabi', 'location' => 'Abuja', 'status' => 'verified'],
-            ['name' => 'Ibiye George', 'email' => 'ibiye@listora.test', 'phone' => '2348095550103', 'slug' => 'ibiye-george', 'location' => 'Port Harcourt', 'status' => 'pending'],
-        ])->map(function (array $data): Agent {
-            $user = User::factory()->create([
+            ['name' => 'Pending Agent', 'email' => 'pending.agent@listora.test', 'phone' => '2348095550103', 'slug' => 'pending-agent', 'location' => 'Port Harcourt', 'status' => 'pending'],
+        ])->map(function (array $data) use ($userFor): AgentProfile {
+            $user = $userFor([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'phone' => $data['phone'],
-                'primary_role' => 'agent',
-                'password' => 'password',
-            ]);
+            ], 'agent');
 
-            return Agent::create([
-                'user_id' => $user->id,
+            return AgentProfile::query()->updateOrCreate(['user_id' => $user->id], [
                 'public_slug' => $data['slug'],
                 'display_name' => $data['name'],
+                'account_type' => 'individual',
+                'operation_type' => 'individual_agent',
                 'verification_status' => $data['status'],
+                'verified_at' => $data['status'] === 'verified' ? now() : null,
                 'short_bio' => 'A local property professional focused on clear information, responsive service and comfortable homes.',
-                'primary_location' => $data['location'],
+                'operating_state' => $data['location'] === 'Abuja' ? 'FCT' : ($data['location'] === 'Port Harcourt' ? 'Rivers' : 'Lagos'),
+                'operating_city' => $data['location'],
             ]);
         });
 
-        User::factory()->create([
+        $tenant = $userFor([
             'name' => 'Chika Tenant',
             'email' => 'tenant@listora.test',
             'phone' => '2348015550104',
-            'primary_role' => 'tenant',
-            'password' => 'password',
-        ]);
+        ], 'tenant');
+        TenantProfile::query()->updateOrCreate(['user_id' => $tenant->id], ['preferred_name' => 'Chika', 'preferred_contact_method' => 'app']);
 
-        User::factory()->create([
+        $landlord = $userFor([
             'name' => 'Musa Landlord',
             'email' => 'landlord@listora.test',
             'phone' => '2348075550105',
-            'primary_role' => 'landlord',
-            'password' => 'password',
-        ]);
+        ], 'landlord');
+        LandlordProfile::query()->updateOrCreate(['user_id' => $landlord->id], ['preferred_name' => 'Musa', 'preferred_contact_method' => 'whatsapp']);
 
-        User::factory()->create([
+        $userFor([
             'name' => 'Listora Administrator',
             'email' => 'admin@listora.test',
             'phone' => '2348085550106',
-            'primary_role' => 'admin',
-            'password' => 'password',
+        ], 'admin');
+
+        $multi = $userFor([
+            'name' => 'Multi Workspace User',
+            'email' => 'multi@listora.test',
+            'phone' => '2348055550107',
+        ], 'agent');
+        $multi->assignRole('landlord');
+        $multi->assignRole('tenant');
+        $multi->forceFill(['last_active_role' => null])->save();
+        AgentProfile::query()->updateOrCreate(['user_id' => $multi->id], [
+            'display_name' => 'Multi Workspace Properties',
+            'public_slug' => 'multi-workspace-properties',
+            'account_type' => 'individual',
+            'operation_type' => 'individual_agent',
+            'operating_state' => 'Lagos',
+            'operating_city' => 'Lagos',
+            'verification_status' => 'pending',
         ]);
+        LandlordProfile::query()->updateOrCreate(['user_id' => $multi->id], ['preferred_name' => 'Multi', 'preferred_contact_method' => 'app']);
+        TenantProfile::query()->updateOrCreate(['user_id' => $multi->id], ['preferred_name' => 'Multi', 'preferred_contact_method' => 'app']);
+
+        $pendingProfile = $agents->firstWhere('verification_status', 'pending');
+        $pendingVerification = VerificationRequest::query()->updateOrCreate(
+            ['user_id' => $pendingProfile->user_id, 'verification_type' => 'individual_agent'],
+            [
+                'status' => 'submitted',
+                'current_step' => 4,
+                'identity_data' => ['id_type' => 'nin', 'id_number' => 'SAMPLE-PRIVATE'],
+                'submitted_at' => now()->subDay(),
+            ],
+        );
+
+        if (! app()->environment('production')) {
+            $sampleDocument = "%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\n%%EOF\n";
+            $samplePath = 'verification/preview/pending-agent-id.pdf';
+            Storage::disk('local')->put($samplePath, $sampleDocument);
+            VerificationDocument::query()->updateOrCreate(
+                [
+                    'verification_request_id' => $pendingVerification->id,
+                    'document_type' => 'government_id',
+                    'storage_path' => $samplePath,
+                ],
+                [
+                    'original_filename' => 'pending-agent-id.pdf',
+                    'mime_type' => 'application/pdf',
+                    'size_bytes' => strlen($sampleDocument),
+                    'checksum' => hash('sha256', $sampleDocument),
+                    'status' => 'uploaded',
+                ],
+            );
+        }
+
+        Invitation::query()->updateOrCreate(
+            ['token_hash' => hash('sha256', 'preview-landlord-invitation')],
+            [
+                'invited_by' => $agents->first()->user_id,
+                'name' => 'Kemi Landlord',
+                'email' => 'kemi.landlord@example.test',
+                'intended_role' => 'landlord',
+                'status' => 'pending',
+                'expires_at' => now()->addDays(6),
+            ],
+        );
+        Invitation::query()->updateOrCreate(
+            ['token_hash' => hash('sha256', 'preview-tenant-invitation')],
+            [
+                'invited_by' => $agents->first()->user_id,
+                'name' => 'Samuel Tenant',
+                'email' => $tenant->email,
+                'phone' => $tenant->phone,
+                'intended_role' => 'tenant',
+                'status' => 'accepted',
+                'expires_at' => now()->addDays(6),
+                'accepted_at' => now()->subHours(3),
+                'accepted_by' => $tenant->id,
+            ],
+        );
 
         $locations = [
             ['state' => 'Lagos', 'city' => 'Lagos', 'area' => 'Yaba'],
@@ -98,10 +196,9 @@ class DatabaseSeeder extends Seeder
             $title = "{$descriptor} {$type['label']} in {$location['area']}";
             $rent = $type['rent'] + (($index % 4) * 150000);
 
-            $property = Property::create([
+            $property = Property::query()->updateOrCreate(['slug' => str($title)->slug().'-'.($index + 1)], [
                 'agent_id' => $agents[$index % $agents->count()]->id,
                 'title' => $title,
-                'slug' => str($title)->slug().'-'.($index + 1),
                 'property_type' => $typeKey,
                 'listing_purpose' => 'rent',
                 'state' => $location['state'],
@@ -124,7 +221,7 @@ class DatabaseSeeder extends Seeder
 
             foreach ([0, 1] as $imageIndex) {
                 $variant = $imageIndex + 1;
-                $property->images()->create([
+                $property->images()->updateOrCreate(['sort_order' => $imageIndex], [
                     'image_path' => "/images/properties/{$typeKey}-{$variant}.webp",
                     'thumbnail_path' => "/images/properties/{$typeKey}-{$variant}-thumb.webp",
                     'alt_text' => "Property view of {$title}",
@@ -134,7 +231,7 @@ class DatabaseSeeder extends Seeder
             }
 
             foreach ([$amenities[$index % 5], $amenities[($index + 1) % 5], $amenities[($index + 2) % 5]] as [$key, $label]) {
-                $property->amenities()->create(['amenity_key' => $key, 'amenity_label' => $label]);
+                $property->amenities()->updateOrCreate(['amenity_key' => $key], ['amenity_label' => $label]);
             }
         }
     }

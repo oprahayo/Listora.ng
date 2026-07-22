@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0A2856">
+    <meta name="csrf-token" content="dNjjusiRttELtZ26mmaGRe2uX9ZTVZAsPOecJAW2">
+    <meta name="description" content="Browse clear, verified property listings from agents across Nigeria with Listora.ng.">
+    <link rel="canonical" href="https://oprahayo.github.io/Listora.ng/agent/adaeze-okafor">
+    <link rel="manifest" href="https://oprahayo.github.io/Listora.ng/manifest.webmanifest">
+    <link rel="icon" href="https://oprahayo.github.io/Listora.ng/images/icons/listora-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://oprahayo.github.io/Listora.ng/images/icons/listora-192.png">
+    <meta property="og:site_name" content="Listora.ng">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Listora.ng — Find your next property">
+    <meta property="og:description" content="Browse clear, verified property listings from agents across Nigeria with Listora.ng.">
+    <meta property="og:url" content="https://oprahayo.github.io/Listora.ng/agent/adaeze-okafor">
+        <title>Adaeze Okafor | Listora.ng</title>
+    <link rel="preload" as="style" href="https://oprahayo.github.io/Listora.ng/build/assets/app-DI-kf2fw.css" /><link rel="modulepreload" as="script" href="https://oprahayo.github.io/Listora.ng/build/assets/app-C9nZ_V8z.js" /><link rel="stylesheet" href="https://oprahayo.github.io/Listora.ng/build/assets/app-DI-kf2fw.css" /><script type="module" src="https://oprahayo.github.io/Listora.ng/build/assets/app-C9nZ_V8z.js"></script>    </head>
+<body x-data="listoraApp()" x-init="init()" class="min-h-screen bg-[#F7F8FA] text-[#182230] antialiased">
+    <a href="#main-content" class="sr-only z-[100] rounded-md bg-white p-3 text-[#0A2856] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
+    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-medium text-[#B75D00]" role="status"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m2 2 20 20M8.5 16.5A5 5 0 0 1 12 15c1.4 0 2.6.5 3.5 1.5M5 12.5A10 10 0 0 1 8 10.6M3 8.5A15 15 0 0 1 6 6.6M14.5 9.3A10 10 0 0 1 19 12.5M12 21h.01"/> </svg>
+You’re offline. Your basic progress is saved on this device.</div>
+    <header class="bg-[#0A2856] text-white">
+    <div class="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-0">
+        <div class="flex h-14 items-center justify-between gap-4 md:h-16">
+            <a href="https://oprahayo.github.io/Listora.ng" class="shrink-0 text-lg font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:text-xl" aria-label="Listora.ng home">
+                Listora<span class="text-[#8FB7FF]">.ng</span>
+            </a>
+
+            <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+                <a href="https://oprahayo.github.io/Listora.ng/properties" class="nav-link ">Rent</a>
+                <a href="https://oprahayo.github.io/Listora.ng/properties?type=office" class="nav-link">Commercial</a>
+                <a href="https://oprahayo.github.io/Listora.ng/join#agents" class="nav-link">For Agents</a>
+                <a href="https://oprahayo.github.io/Listora.ng#how-it-works" class="nav-link">How It Works</a>
+            </nav>
+
+            <div class="hidden min-w-0 flex-1 items-center justify-end gap-2 md:flex">
+                <form action="https://oprahayo.github.io/Listora.ng/properties" method="GET" class="hidden items-center xl:flex">
+                    <label class="sr-only" for="header-location">Location</label>
+                    <div class="relative">
+                        <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#8FB7FF]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+                        <select id="header-location" name="city" onchange="this.form.submit()" class="h-10 appearance-none rounded-l-lg border border-white/20 bg-white/8 pl-9 pr-8 text-sm text-white focus:border-white focus:outline-none">
+                            <option value="" class="text-[#182230]">Nigeria</option>
+                                                            <option value="Lagos"  class="text-[#182230]">Lagos</option>
+                                                            <option value="Abuja"  class="text-[#182230]">Abuja</option>
+                                                            <option value="Port Harcourt"  class="text-[#182230]">Port Harcourt</option>
+                                                            <option value="Ibadan"  class="text-[#182230]">Ibadan</option>
+                                                            <option value="Ado-Ekiti"  class="text-[#182230]">Ado-Ekiti</option>
+                                                    </select>
+                        <svg class="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8FB7FF]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m6 9 6 6 6-6"/> </svg>
+                    </div>
+                    <label class="sr-only" for="header-search">Search properties</label>
+                    <div class="relative">
+                        <input id="header-search" name="q" value="" class="h-10 w-44 rounded-r-lg border-y border-r border-white/20 bg-white px-3 pr-9 text-sm text-[#182230] placeholder:text-[#98A2B3] focus:outline-2 focus:outline-[#8FB7FF]" placeholder="Search properties">
+                        <button class="absolute right-1 top-1 flex size-8 items-center justify-center rounded-md text-[#0A2856] hover:bg-[#EAF2FF]" aria-label="Search"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
+</button>
+                    </div>
+                </form>
+
+                <a href="https://oprahayo.github.io/Listora.ng/saved" class="header-icon" aria-label="Saved properties" title="Saved properties">
+                    <svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+                    <span x-show="savedIds.length" x-text="savedIds.length" class="absolute -right-1 -top-1 min-w-4 rounded-full bg-white px-1 text-center text-[10px] font-semibold text-[#0A2856]"></span>
+                </a>
+
+                                    <button type="button" @click="openLogin()" class="header-icon" aria-label="Sign in to use messages" aria-disabled="true" title="Sign in to use messages"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/> </svg>
+</button>
+                    <button type="button" @click="openLogin()" class="hidden h-10 shrink-0 items-center whitespace-nowrap rounded-lg border border-white/35 px-3 text-sm font-medium transition hover:bg-white/10 lg:inline-flex">Sign In</button>
+                    <button type="button" @click="openLogin({ intent: 'list-property' })" class="hidden h-10 shrink-0 items-center gap-2 whitespace-nowrap rounded-lg bg-[#145FCC] px-3 text-sm font-medium transition hover:bg-[#0E4DA9] xl:inline-flex"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 5v14M5 12h14"/> </svg>
+List Property</button>
+                            </div>
+
+            <div class="flex items-center gap-1 md:hidden">
+                <a href="https://oprahayo.github.io/Listora.ng/properties?city=Lagos" class="inline-flex min-h-10 items-center gap-1 rounded-lg px-2 text-[13px] font-medium text-[#EAF1FC] hover:bg-white/10" aria-label="Browse properties in Lagos"><span>Lagos</span><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m6 9 6 6 6-6"/> </svg>
+</a>
+                <button type="button" @click="openLogin()" class="header-icon" aria-label="Sign in"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> </svg>
+</button>                <button type="button" @click="mobileMenuOpen = true" class="header-icon" aria-label="Open menu"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M4 6h16M4 12h16M4 18h16"/> </svg>
+</button>
+            </div>
+        </div>
+
+                    <form action="https://oprahayo.github.io/Listora.ng/properties" method="GET" class="pb-4 md:hidden">
+                <label class="sr-only" for="mobile-header-search">Search properties</label>
+                <div class="relative">
+                    <svg class="pointer-events-none absolute left-3.5 top-1/2 size-5 -translate-y-1/2 text-[#667085]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
+                    <input id="mobile-header-search" name="q" class="h-11 w-full rounded-lg border-0 bg-white pl-11 pr-4 text-sm text-[#182230] placeholder:text-[#98A2B3] focus:outline-2 focus:outline-offset-2 focus:outline-[#8FB7FF]" placeholder="Search location or property">
+                </div>
+            </form>
+            </div>
+
+    <div x-cloak x-show="mobileMenuOpen" @keydown.escape.window="mobileMenuOpen = false" class="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+        <button @click="mobileMenuOpen = false" class="absolute inset-0 bg-[#081B38]/70" aria-label="Close menu"></button>
+        <div x-show="mobileMenuOpen" x-transition:enter="transition duration-150" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" class="absolute inset-y-0 right-0 w-[84%] max-w-sm bg-white p-5 text-[#182230] shadow-2xl">
+            <div class="flex items-center justify-between"><span class="text-xl font-semibold text-[#0A2856]">Listora.ng</span><button @click="mobileMenuOpen = false" class="touch-icon" aria-label="Close menu"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M6 6l12 12M18 6 6 18"/> </svg>
+</button></div>
+            <nav class="mt-8 grid gap-2" aria-label="Mobile menu">
+                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/properties"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
+Rent a property</a>
+                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/properties?type=office"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M5 21V4h10v17M15 9h4v12M8 8h4M8 12h4M8 16h4"/> </svg>
+Commercial</a>
+                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/join#agents"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/> </svg>
+For Agents</a>
+                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng#how-it-works"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/> </svg>
+How It Works</a>
+            </nav>
+                            <button @click="mobileMenuOpen = false; openLogin()" class="btn-primary mt-8 w-full">Sign In</button>
+                    </div>
+    </div>
+</header>
+    <main id="main-content"><section class="mx-auto max-w-[1180px] px-4 py-8 sm:px-6 lg:px-0"><div class="rounded-xl border border-[#D7E2F4] bg-white p-5"><div class="flex flex-wrap items-start gap-4"><span class="flex size-14 items-center justify-center rounded-full bg-[#0A2856] text-lg font-semibold text-white">AO</span><div><div class="flex flex-wrap items-center gap-2"><h1 class="text-[27px] font-semibold text-[#182230]">Adaeze Okafor</h1><span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#EAF2FF] text-[#0A2856]">
+    <svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+    Verified
+</span>
+</div><p class="mt-1 text-sm text-[#667085]">Lagos, Lagos</p><p class="mt-3 max-w-2xl text-sm leading-6 text-[#475467]">A local property professional focused on clear information, responsive service and comfortable homes.</p></div></div></div>
+        <div class="mt-6 flex items-center justify-between"><h2 class="text-xl font-semibold text-[#182230]">Listed properties</h2><a href="https://oprahayo.github.io/Listora.ng/properties?q=Adaeze%20Okafor" class="text-sm font-medium text-[#145FCC]">See all</a></div><div class="mt-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-yaba-1" aria-label="View Bright Apartment in Yaba">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.avif?v=1784487446" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp?v=1784487446" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.jpg?v=1784487446" alt="Property view of Bright Apartment in Yaba" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(1)" :aria-pressed="isSaved(1)" aria-label="Save Bright Apartment in Yaba" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(1) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+                <div class="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+            <span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#FFF4E8] text-[#B75D00]">
+        Reserved
+</span>
+        </div>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦2,800,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-yaba-1" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Bright Apartment in Yaba</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Yaba, Lagos</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+2 Beds</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+2 Baths</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Parking</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Running water</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-bodija-4" aria-label="View Spacious Shared Flat in Bodija">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.avif?v=1784487452" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp?v=1784487452" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.jpg?v=1784487452" alt="Property view of Spacious Shared Flat in Bodija" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(4)" :aria-pressed="isSaved(4)" aria-label="Save Spacious Shared Flat in Bodija" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(4) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦1,350,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-bodija-4" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Spacious Shared Flat in Bodija</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Bodija, Ibadan</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+1 Bed</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+1 Bath</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Backup power</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Good access road</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-gwarinpa-7" aria-label="View Well-kept Apartment in Gwarinpa">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.avif?v=1784487446" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp?v=1784487446" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.jpg?v=1784487446" alt="Property view of Well-kept Apartment in Gwarinpa" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(7)" :aria-pressed="isSaved(7)" aria-label="Save Well-kept Apartment in Gwarinpa" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(7) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦3,100,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-gwarinpa-7" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Well-kept Apartment in Gwarinpa</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Gwarinpa, Abuja</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+2 Beds</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+2 Baths</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Backup power</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Parking</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-adebayo-10" aria-label="View Quiet Shared Flat in Adebayo">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.avif?v=1784487452" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp?v=1784487452" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.jpg?v=1784487452" alt="Property view of Quiet Shared Flat in Adebayo" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(10)" :aria-pressed="isSaved(10)" aria-label="Save Quiet Shared Flat in Adebayo" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(10) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+                <div class="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+            <span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#FFF4E8] text-[#B75D00]">
+        Reserved
+</span>
+        </div>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦1,050,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-adebayo-10" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Quiet Shared Flat in Adebayo</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Adebayo, Ado-Ekiti</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+1 Bed</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+1 Bath</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Good access road</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Running water</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-old-gra-13" aria-label="View Bright Apartment in Old GRA">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.avif?v=1784487446" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp?v=1784487446" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.jpg?v=1784487446" alt="Property view of Bright Apartment in Old GRA" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(13)" :aria-pressed="isSaved(13)" aria-label="Save Bright Apartment in Old GRA" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(13) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦2,800,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/bright-apartment-in-old-gra-13" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Bright Apartment in Old GRA</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Old GRA, Port Harcourt</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+2 Beds</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+2 Baths</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Backup power</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Good access road</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-yaba-16" aria-label="View Spacious Shared Flat in Yaba">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.avif?v=1784487452" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp?v=1784487452" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.jpg?v=1784487452" alt="Property view of Spacious Shared Flat in Yaba" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(16)" :aria-pressed="isSaved(16)" aria-label="Save Spacious Shared Flat in Yaba" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(16) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦1,350,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/spacious-shared-flat-in-yaba-16" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Spacious Shared Flat in Yaba</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Yaba, Lagos</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+1 Bed</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+1 Bath</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Parking</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Running water</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-bodija-19" aria-label="View Well-kept Apartment in Bodija">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.avif?v=1784487446" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.webp?v=1784487446" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/apartment-1-thumb.jpg?v=1784487446" alt="Property view of Well-kept Apartment in Bodija" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(19)" :aria-pressed="isSaved(19)" aria-label="Save Well-kept Apartment in Bodija" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(19) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+                <div class="absolute bottom-2 left-2 md:bottom-3 md:left-3">
+            <span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#FFF4E8] text-[#B75D00]">
+        Reserved
+</span>
+        </div>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦3,100,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/well-kept-apartment-in-bodija-19" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Well-kept Apartment in Bodija</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Bodija, Ibadan</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+2 Beds</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+2 Baths</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Backup power</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Good access road</span>
+                                    </div>
+    </div>
+</article>
+<article class="property-card group overflow-hidden rounded-lg border border-[#E4E7EC] bg-white shadow-[0_1px_3px_rgba(10,40,86,0.08)] transition hover:border-[#C9D7EA] hover:shadow-[0_3px_10px_rgba(10,40,86,0.10)]">
+    <div class="relative aspect-[16/10] overflow-hidden bg-[#EAF2FF]">
+        <a href="https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-gwarinpa-22" aria-label="View Quiet Shared Flat in Gwarinpa">
+            <picture>
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.avif?v=1784487452" type="image/avif">
+                <source srcset="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.webp?v=1784487452" type="image/webp">
+                <img src="https://oprahayo.github.io/Listora.ng/images/properties/shared-flat-1-thumb.jpg?v=1784487452" alt="Property view of Quiet Shared Flat in Gwarinpa" width="640" height="400"  loading="lazy"  decoding="async" class="h-full w-full object-cover transition duration-150 group-hover:scale-[1.01]">
+            </picture>
+        </a>
+        <button type="button" @click="toggleSaved(22)" :aria-pressed="isSaved(22)" aria-label="Save Quiet Shared Flat in Gwarinpa" class="absolute right-2 top-2 flex size-9 items-center justify-center rounded-full border border-white/70 bg-white/95 text-[#0A2856] shadow-sm transition hover:text-[#145FCC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC] md:right-3 md:top-3 md:size-10">
+            <svg class="size-[18px] md:size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x-bind:fill="isSaved(22) ? 'currentColor' : 'none'">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+        </button>
+            </div>
+    <div class="p-3 md:p-4">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+                <p class="text-[18px] font-semibold tracking-tight text-[#0A2856] md:text-[19px]">₦1,050,000/year</p>
+                <h3 class="mt-1 line-clamp-2 text-[15px] font-medium leading-snug text-[#182230] md:text-[16px]">
+                    <a href="https://oprahayo.github.io/Listora.ng/properties/quiet-shared-flat-in-gwarinpa-22" class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145FCC]">Quiet Shared Flat in Gwarinpa</a>
+                </h3>
+            </div>
+                            <span title="Verified agent" class="mt-1 shrink-0 text-[#145FCC]"><svg class="size-[18px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/> </svg>
+<span class="sr-only">Verified agent</span></span>
+                    </div>
+        <p class="mt-2 flex items-center gap-1 truncate text-[12px] text-[#667085] md:text-[13px]"><svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
+<span class="truncate">Gwarinpa, Abuja</span></p>
+        <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-[#EEF0F3] pt-2 text-[12px] text-[#475467] md:text-[13px]">
+            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 19v-8m18 8v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3h18M7 11V7h4a2 2 0 0 1 2 2v2"/> </svg>
+1 Bed</span>            <span class="flex items-center gap-1"><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V6a3 3 0 0 1 6 0"/> </svg>
+1 Bath</span>                                                <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Backup power</span>
+                                    <span class="hidden rounded-md bg-[#F7F8FA] px-2 py-1 text-xs md:inline-flex">Parking</span>
+                                    </div>
+    </div>
+</article>
+</div>
+    </section></main>
+    <footer class="border-t border-[#E4E7EC] bg-white pb-20 pt-6 md:pb-8 md:pt-8">
+    <div class="mx-auto flex max-w-[1180px] flex-col gap-4 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-0">
+        <a href="https://oprahayo.github.io/Listora.ng" class="text-lg font-semibold tracking-tight text-[#0A2856]">Listora.ng</a>
+        <nav class="flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-medium text-[#475467] md:text-sm" aria-label="Footer navigation">
+            <a href="https://oprahayo.github.io/Listora.ng/properties" class="hover:text-[#145FCC]">Browse</a>
+            <a href="https://oprahayo.github.io/Listora.ng#how-it-works" class="hover:text-[#145FCC]">How It Works</a>
+            <a href="https://oprahayo.github.io/Listora.ng/join#agents" class="hover:text-[#145FCC]">For Agents</a>
+            <span>Privacy</span>
+            <span>Terms</span>
+        </nav>
+        <p class="text-[13px] text-[#667085]">© 2026 Listora.ng</p>
+    </div>
+</footer>
+    <nav class="fixed inset-x-0 bottom-0 z-30 border-t border-[#E4E7EC] bg-white/95 pb-[max(.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-6px_20px_rgba(11,42,91,.08)] backdrop-blur md:hidden" aria-label="Bottom navigation">
+    <div class="grid grid-cols-4">
+        <a href="https://oprahayo.github.io/Listora.ng" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/> </svg>
+<span>Home</span></a>
+        <a href="https://oprahayo.github.io/Listora.ng/properties" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
+<span>Browse</span></a>
+        <a href="https://oprahayo.github.io/Listora.ng/saved" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
+<span>Saved</span></a>
+                    <button type="button" @click="openLogin()" class="mobile-nav-item"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> </svg>
+<span>Account</span></button>
+            </div>
+</nav>
+    <div x-cloak x-show="loginOpen" @keydown.escape.window="closeLogin()" class="fixed inset-0 z-[70]" aria-live="polite">
+    <div x-show="loginOpen" x-transition.opacity.duration.150ms class="absolute inset-0 bg-[#06152D]/75" @click="if (!loginLoading) closeLogin()"></div>
+    <section x-show="loginOpen" x-transition:enter="transition duration-150" x-transition:enter-start="translate-y-full opacity-0 md:translate-y-3" x-transition:enter-end="translate-y-0 opacity-100" x-transition:leave="transition duration-150" x-transition:leave-start="translate-y-0 opacity-100" x-transition:leave-end="translate-y-full opacity-0 md:translate-y-3" @keydown.tab="trapFocus($event, $el)" class="absolute inset-x-0 bottom-0 max-h-[90dvh] overflow-y-auto rounded-t-2xl bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-3 shadow-2xl md:inset-auto md:left-1/2 md:top-1/2 md:w-[410px] md:max-w-[calc(100%-2rem)] md:max-h-[85vh] md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:p-6" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <div class="mx-auto mb-3 h-1 w-10 rounded-full bg-[#D0D5DD] md:hidden"></div>
+        <button type="button" @click="closeLogin()" class="touch-icon absolute right-3 top-3" aria-label="Close sign in"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M6 6l12 12M18 6 6 18"/> </svg>
+</button>
+
+        <span class="flex size-10 items-center justify-center rounded-lg bg-[#EAF2FF] text-[#145FCC]"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/> </svg>
+</span>
+        <h2 id="login-title" class="mt-3 text-xl font-semibold tracking-tight text-[#182230]">Sign in</h2>
+
+        <form x-show="loginMode === 'password'" action="https://oprahayo.github.io/Listora.ng/auth/login" method="POST" @submit.prevent="submitLogin($el)" novalidate class="mt-4">
+            <input type="hidden" name="_token" value="dNjjusiRttELtZ26mmaGRe2uX9ZTVZAsPOecJAW2" autocomplete="off">            <input type="hidden" name="intent" :value="loginIntent || ''">
+            <div>
+                <label for="login-identifier" class="form-label">Email or phone</label>
+                <input x-ref="loginIdentifier" id="login-identifier" name="identifier" autocomplete="username" inputmode="email" class="form-input" :class="loginErrors.identifier ? 'border-[#C92A2A]' : ''" placeholder="you@example.com or 080…" required>
+                <p x-show="loginErrors.identifier" x-text="loginErrors.identifier" class="form-error"></p>
+            </div>
+            <div class="mt-3">
+                <label for="login-password" class="form-label">Password</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" class="form-input" :class="loginErrors.password ? 'border-[#C92A2A]' : ''" placeholder="Enter your password" required>
+                <p x-show="loginErrors.password" x-text="loginErrors.password" class="form-error"></p>
+            </div>
+            <div class="mt-3 flex items-center justify-between gap-3">
+                <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-[#475467]"><input name="remember" value="1" type="checkbox" class="size-5 rounded border-[#98A2B3] text-[#145FCC] focus:ring-[#145FCC]">Remember me</label>
+                <a href="https://oprahayo.github.io/Listora.ng/forgot-password" class="text-sm font-medium text-[#145FCC] hover:text-[#0E4DA9]">Forgot password?</a>
+            </div>
+            <p x-show="!online" class="mt-3 flex items-start gap-2 rounded-lg bg-[#FFF4E8] p-3 text-sm text-[#B75D00]"><svg class="mt-0.5 size-4 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m2 2 20 20M8.5 16.5A5 5 0 0 1 12 15c1.4 0 2.6.5 3.5 1.5M5 12.5A10 10 0 0 1 8 10.6M3 8.5A15 15 0 0 1 6 6.6M14.5 9.3A10 10 0 0 1 19 12.5M12 21h.01"/> </svg>
+Reconnect to sign in.</p>
+            <button type="submit" :disabled="loginLoading || !online" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Sign In</span><span x-show="loginLoading">Signing in…</span></button>
+        </form>
+
+        <button x-show="loginMode === 'password'" type="button" @click="loginMode = 'otp'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.otpIdentifier?.focus())" class="mt-3 flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#D0D5DD] bg-white px-4 text-sm font-medium text-[#344054] transition hover:border-[#98A2B3] hover:bg-[#F8FAFC]">Sign in with OTP</button>
+
+        <form x-cloak x-show="loginMode === 'otp' && !otpRequested" action="https://oprahayo.github.io/Listora.ng/auth/otp/request" method="POST" @submit.prevent="requestOtp($el)" novalidate class="mt-4">
+            <input type="hidden" name="_token" value="dNjjusiRttELtZ26mmaGRe2uX9ZTVZAsPOecJAW2" autocomplete="off">            <div>
+                <label for="otp-identifier" class="form-label">Email or phone</label>
+                <input x-ref="otpIdentifier" id="otp-identifier" name="identifier" autocomplete="username" inputmode="email" class="form-input" :class="loginErrors.identifier ? 'border-[#C92A2A]' : ''" placeholder="you@example.com or 080…" required>
+                <p x-show="loginErrors.identifier" x-text="loginErrors.identifier" class="form-error"></p>
+            </div>
+            <p x-show="loginMessage" x-text="loginMessage" class="mt-3 rounded-lg bg-[#EAF2FF] p-3 text-sm text-[#0A2856]" role="status"></p>
+            <p x-show="!online" class="mt-3 flex items-start gap-2 rounded-lg bg-[#FFF4E8] p-3 text-sm text-[#B75D00]"><svg class="mt-0.5 size-4 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m2 2 20 20M8.5 16.5A5 5 0 0 1 12 15c1.4 0 2.6.5 3.5 1.5M5 12.5A10 10 0 0 1 8 10.6M3 8.5A15 15 0 0 1 6 6.6M14.5 9.3A10 10 0 0 1 19 12.5M12 21h.01"/> </svg>
+Reconnect to request a code.</p>
+            <button type="submit" :disabled="loginLoading || !online" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Request OTP</span><span x-show="loginLoading">Requesting…</span></button>
+            <button type="button" @click="loginMode = 'password'; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.loginIdentifier?.focus())" class="mt-2 min-h-11 w-full text-sm font-medium text-[#145FCC] hover:text-[#0E4DA9]">Use password instead</button>
+        </form>
+
+        <form x-cloak x-show="loginMode === 'otp' && otpRequested" action="https://oprahayo.github.io/Listora.ng/auth/otp/confirm" method="POST" @submit.prevent="confirmOtp($el)" class="mt-4">
+            <input type="hidden" name="_token" value="dNjjusiRttELtZ26mmaGRe2uX9ZTVZAsPOecJAW2" autocomplete="off">            <input type="hidden" name="identifier" :value="otpIdentifier">
+            <p x-show="loginMessage" x-text="loginMessage" class="rounded-lg bg-[#EAF2FF] p-3 text-sm text-[#0A2856]" role="status"></p>
+            <div class="mt-3"><label for="login-otp-code" class="form-label">Six-digit code</label><input id="login-otp-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" class="form-input h-14 text-center text-2xl tracking-[.5em]" required><p x-show="loginErrors.code" x-text="loginErrors.code" class="form-error"></p></div>
+            <button type="submit" :disabled="loginLoading || !online || false" class="btn-primary mt-3 w-full disabled:cursor-not-allowed disabled:opacity-60"><span x-show="!loginLoading">Verify and sign in</span><span x-show="loginLoading">Checking…</span></button>
+            <button type="button" @click="otpRequested = false; loginErrors = {}; loginMessage = ''; $nextTick(() => $refs.otpIdentifier?.focus())" class="mt-2 min-h-11 w-full text-sm font-medium text-[#145FCC]">Change details or resend</button>
+        </form>
+
+        <p class="mt-4 text-center text-sm text-[#667085]">New to Listora? <a href="https://oprahayo.github.io/Listora.ng/join" class="font-medium text-[#145FCC] hover:text-[#0E4DA9]">Create account</a></p>
+    </section>
+</div>
+    <div x-cloak x-show="toast" x-transition class="fixed bottom-24 left-1/2 z-[80] -translate-x-1/2 rounded-lg bg-[#182230] px-4 py-3 text-sm font-semibold text-white shadow-xl md:bottom-8" role="status" x-text="toast"></div>
+</body>
+</html>

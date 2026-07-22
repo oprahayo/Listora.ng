@@ -20,7 +20,9 @@ class UserFactory extends Factory
     public function configure(): static
     {
         return $this->afterCreating(function (User $user): void {
-            $user->assignRole($user->primary_role);
+            if ($user->primary_role) {
+                $user->assignRole($user->primary_role);
+            }
         });
     }
 
@@ -39,7 +41,7 @@ class UserFactory extends Factory
             'phone_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'primary_role' => 'tenant',
-            'account_status' => 'active',
+            'status' => 'active',
             'remember_token' => Str::random(10),
         ];
     }

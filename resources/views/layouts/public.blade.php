@@ -22,7 +22,7 @@
 </head>
 <body x-data="listoraApp()" x-init="init()" class="min-h-screen bg-[#F7F8FA] text-[#182230] antialiased">
     <a href="#main-content" class="sr-only z-[100] rounded-md bg-white p-3 text-[#0A2856] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
-    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-medium text-[#B75D00]" role="status"><x-icon name="wifi-off" class="size-4" />You’re offline. Some saved pages are still available.</div>
+    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-medium text-[#B75D00]" role="status"><x-icon name="wifi-off" class="size-4" />You’re offline. Your basic progress is saved on this device.</div>
     <x-public-header />
     <main id="main-content">{{ $slot }}</main>
     <x-public-footer />

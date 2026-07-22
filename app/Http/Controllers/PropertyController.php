@@ -21,7 +21,7 @@ class PropertyController extends Controller
 
     public function show(Property $property): View
     {
-        $property->load(['agent:id,display_name,verification_status,public_slug,short_bio,primary_location', 'images', 'amenities']);
+        $property->load(['agent:id,display_name,verification_status,public_slug,short_bio,operating_city,operating_state', 'images', 'amenities']);
 
         return view('public.properties.show', compact('property'));
     }

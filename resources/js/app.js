@@ -4,6 +4,7 @@ const SAVED_KEY = 'listora.guest-saved-properties.v1';
 const STATIC_PREVIEW = window.location.hostname === 'oprahayo.github.io' && window.location.pathname.startsWith('/Listora.ng');
 const APP_BASE = STATIC_PREVIEW ? '/Listora.ng' : '';
 const appPath = path => `${APP_BASE}${path}`;
+window.LISTORA_STATIC_PREVIEW = STATIC_PREVIEW;
 
 Alpine.data('listoraApp', () => ({
     online: navigator.onLine,
@@ -13,6 +14,8 @@ Alpine.data('listoraApp', () => ({
     loginLoading: false,
     loginErrors: {},
     loginMessage: '',
+    otpRequested: false,
+    otpIdentifier: '',
     mobileMenuOpen: false,
     filterOpen: false,
     sortOpen: false,
@@ -29,6 +32,15 @@ Alpine.data('listoraApp', () => ({
         this.savedIds = this.readSavedIds();
         window.addEventListener('online', () => { this.online = true; });
         window.addEventListener('offline', () => { this.online = false; });
+        this.$nextTick(() => this.initializeOfflineDrafts());
+        if (STATIC_PREVIEW) {
+            this.$nextTick(() => document.querySelectorAll('form[method="POST"], form[method="post"]').forEach(form => {
+                form.addEventListener('submit', event => {
+                    event.preventDefault();
+                    this.showToast('Preview only. No information was submitted.');
+                });
+            }));
+        }
 
         if ('serviceWorker' in navigator && import.meta.env.PROD) {
             window.addEventListener('load', () => navigator.serviceWorker.register(appPath('/service-worker.js')).catch(() => {}));
@@ -94,6 +106,8 @@ Alpine.data('listoraApp', () => ({
         this.loginMode = 'password';
         this.loginErrors = {};
         this.loginMessage = '';
+        this.otpRequested = false;
+        this.otpIdentifier = '';
         this.loginOpen = true;
         this.$nextTick(() => this.$refs.loginIdentifier?.focus());
         if (this.online) this.refreshCsrfToken();
@@ -118,6 +132,7 @@ Alpine.data('listoraApp', () => ({
         this.loginOpen = false;
         this.loginMode = 'password';
         this.loginIntent = null;
+        this.otpRequested = false;
         this.$nextTick(() => this.previousFocus?.focus?.());
     },
 
@@ -194,7 +209,9 @@ Alpine.data('listoraApp', () => ({
     async requestOtp(form) {
         if (!this.online) return;
         if (STATIC_PREVIEW) {
-            this.loginErrors = { identifier: 'OTP sign-in is currently unavailable.' };
+            this.otpIdentifier = new FormData(form).get('identifier') || '';
+            this.otpRequested = true;
+            this.loginMessage = 'Code delivery is unavailable in this preview.';
             return;
         }
         this.loginLoading = true;
@@ -212,10 +229,88 @@ Alpine.data('listoraApp', () => ({
                 return;
             }
             this.loginMessage = data.message;
+            this.otpIdentifier = new FormData(form).get('identifier') || '';
+            this.otpRequested = true;
         } catch {
             this.loginErrors = { identifier: 'Unable to request an OTP. Check your connection.' };
         } finally {
             this.loginLoading = false;
+        }
+    },
+
+    async confirmOtp(form) {
+        if (!this.online || STATIC_PREVIEW) return;
+        this.loginLoading = true;
+        this.loginErrors = {};
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST', body: new FormData(form),
+                headers: { Accept: 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                this.loginErrors = Object.fromEntries(Object.entries(data.errors || { code: [data.message || 'Unable to verify code.'] }).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]));
+                return;
+            }
+            await this.notifyAuthState();
+            window.location.assign(data.redirect || appPath('/dashboard'));
+        } catch {
+            this.loginErrors = { code: 'Unable to verify the code. Check your connection.' };
+        } finally {
+            this.loginLoading = false;
+        }
+    },
+
+    initializeOfflineDrafts() {
+        document.querySelectorAll('form[data-offline-draft]').forEach(form => {
+            const key = `listora.safe-draft.${form.dataset.offlineDraft}`;
+            const allowed = (form.dataset.safeFields || '').split(',').filter(Boolean);
+            try {
+                const draft = JSON.parse(localStorage.getItem(key) || '{}');
+                allowed.forEach(name => {
+                    const field = form.elements.namedItem(name);
+                    if (!field || draft[name] === undefined) return;
+                    if (field instanceof RadioNodeList) [...field].forEach(input => { input.checked = input.value === draft[name]; });
+                    else if (!field.value) field.value = draft[name];
+                });
+            } catch { localStorage.removeItem(key); }
+
+            let timer;
+            form.addEventListener('input', () => {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    const draft = {};
+                    allowed.forEach(name => {
+                        const field = form.elements.namedItem(name);
+                        if (!field) return;
+                        draft[name] = field instanceof RadioNodeList ? field.value : field.value;
+                    });
+                    localStorage.setItem(key, JSON.stringify(draft));
+                    this.autosaveForm(form);
+                }, 800);
+            });
+            form.addEventListener('submit', event => {
+                if (!navigator.onLine) {
+                    event.preventDefault();
+                    this.showToast('Reconnect before submitting. Your basic progress is saved.');
+                } else {
+                    localStorage.removeItem(key);
+                }
+            });
+        });
+    },
+
+    async autosaveForm(form) {
+        if (!navigator.onLine || STATIC_PREVIEW || !form.dataset.autosaveUrl) return;
+        const data = new FormData(form);
+        for (const [name, value] of [...data.entries()]) if (value instanceof File) data.delete(name);
+        try {
+            await fetch(form.dataset.autosaveUrl, {
+                method: 'POST', body: data,
+                headers: { Accept: 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+            });
+        } catch {
+            // The next successful navigation saves the same basic fields on the server.
         }
     },
 

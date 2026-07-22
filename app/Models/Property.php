@@ -45,7 +45,7 @@ class Property extends Model
 
     public function agent(): BelongsTo
     {
-        return $this->belongsTo(Agent::class);
+        return $this->belongsTo(AgentProfile::class, 'agent_id');
     }
 
     public function images(): HasMany
