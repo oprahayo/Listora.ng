@@ -18,7 +18,7 @@ class PublicPlatformTest extends TestCase
 
         $this->get('/')
             ->assertOk()
-            ->assertSee('Find a property that fits.')
+            ->assertSee('Find your next property.')
             ->assertSee('Featured properties')
             ->assertSee('Sign in')
             ->assertSee('role="dialog"', false);
@@ -96,10 +96,42 @@ class PublicPlatformTest extends TestCase
         $this->get('/manifest.webmanifest')->assertOk()->assertHeader('content-type', 'application/manifest+json');
         $this->get('/service-worker.js')->assertOk()->assertHeader('content-type', 'application/javascript');
         $serviceWorker = file_get_contents(public_path('service-worker.js'));
-        $this->assertStringContainsString("const VERSION = 'v2';", $serviceWorker);
+        $this->assertStringContainsString("const VERSION = 'v3';", $serviceWorker);
         $this->assertStringContainsString('networkFirstPage(request)', $serviceWorker);
+        $this->assertStringContainsString('caches.delete(key)', $serviceWorker);
+        $this->assertStringContainsString('self.clients.claim()', $serviceWorker);
+        $this->assertStringContainsString('self.skipWaiting()', $serviceWorker);
         $this->assertStringNotContainsString('sprint', strtolower($serviceWorker));
         $this->get('/offline')->assertOk()->assertSee('You’re offline');
         $this->get('/sitemap.xml')->assertOk()->assertSee('<urlset', false);
+    }
+
+    public function test_public_pages_do_not_expose_internal_delivery_language(): void
+    {
+        $this->seed();
+        $property = Property::query()->published()->firstOrFail();
+        $output = collect([
+            '/',
+            '/properties',
+            route('properties.show', $property, false),
+            '/saved',
+            '/join',
+            '/forgot-password',
+            '/offline',
+        ])->map(fn (string $url) => strtolower((string) $this->get($url)->assertOk()->getContent()))->join("\n");
+
+        foreach ([
+            'sprint 1',
+            'sprint 2',
+            'sprint 5',
+            'development otp',
+            'future sprint',
+            'roadmap',
+            'placeholder implementation',
+            'demonstration',
+            'no booking has been created',
+        ] as $forbiddenCopy) {
+            $this->assertStringNotContainsString($forbiddenCopy, $output);
+        }
     }
 }

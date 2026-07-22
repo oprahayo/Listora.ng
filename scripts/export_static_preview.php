@@ -113,6 +113,8 @@ foreach ($properties as $property) {
 
 $summaries = $properties->map(function (Property $property) use ($publicBase): array {
     $cover = $property->images->firstWhere('is_cover', true) ?? $property->images->first();
+    $image = $cover?->thumbnail_path ?? '/images/properties/apartment-1-thumb.webp';
+    $version = @filemtime(public_path(ltrim($image, '/'))) ?: 1;
 
     return [
         'id' => $property->id,
@@ -120,7 +122,7 @@ $summaries = $properties->map(function (Property $property) use ($publicBase): a
         'rent' => $property->formatted_rent,
         'location' => $property->area.', '.$property->city,
         'url' => $publicBase.'/properties/'.$property->slug.'/',
-        'image' => $publicBase.($cover?->thumbnail_path ?? '/images/properties/apartment-1-thumb.webp'),
+        'image' => $publicBase.$image.'?v='.$version,
         'image_alt' => $cover?->alt_text ?? $property->title,
         'verified' => $property->agent->isVerified(),
         'facts' => collect([

@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
                 'city' => $location['city'],
                 'area' => $location['area'],
                 'display_address' => $location['area'].', '.$location['city'],
-                'description' => "A practical {$type['label']} in {$location['area']} with a comfortable layout, dependable access and everyday services nearby. The details shown are for demonstration and should be confirmed before an inspection.",
+                'description' => "A practical {$type['label']} in {$location['area']} with a comfortable layout, dependable access and everyday services nearby. Confirm the property details directly with the agent before an inspection.",
                 'annual_rent' => $rent,
                 'bedrooms' => $type['beds'],
                 'bathrooms' => $type['beds'] ? min(3, $type['beds']) : null,
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
                 $property->images()->create([
                     'image_path' => "/images/properties/{$typeKey}-{$variant}.webp",
                     'thumbnail_path' => "/images/properties/{$typeKey}-{$variant}-thumb.webp",
-                    'alt_text' => "Demonstration view of {$title}",
+                    'alt_text' => "Property view of {$title}",
                     'sort_order' => $imageIndex,
                     'is_cover' => $imageIndex === 0,
                 ]);

@@ -16,7 +16,7 @@ final class LogOtpDispatcher implements OtpDispatcher
         $key = 'otp:'.hash('sha256', Str::lower($identifier).'|'.$role);
 
         Cache::put($key, password_hash($code, PASSWORD_DEFAULT), now()->addMinutes(5));
-        Log::notice('Listora development OTP', ['identifier' => $identifier, 'role' => $role, 'code' => $code]);
+        Log::notice('Listora OTP dispatch', ['identifier' => $identifier, 'role' => $role, 'code' => $code]);
         RateLimiter::hit('otp-issued:'.hash('sha256', $identifier), 300);
     }
 }

@@ -29,10 +29,10 @@ function drawProperty(string $path, string $label, int $variant, int $width, int
 {
     $image = imagecreatetruecolor($width, $height);
     imageantialias($image, true);
-    $navy = colour($image, '#0B2A5B');
-    $blue = colour($image, '#155EEF');
+    $navy = colour($image, '#0A2856');
+    $blue = colour($image, '#145FCC');
     $pale = colour($image, '#DDE9FA');
-    $sky = colour($image, '#EEF4FF');
+    $sky = colour($image, '#EAF2FF');
     $white = colour($image, '#FFFFFF');
     $line = colour($image, '#B8C8E1');
     $ground = colour($image, '#D7E2F4');
@@ -67,7 +67,7 @@ function drawProperty(string $path, string $label, int $variant, int $width, int
     imagefilledrectangle($image, $doorLeft, $bottom - (int) ($height * .23), $doorLeft + (int) ($width * .11), $bottom, $blue);
     imagefilledellipse($image, $doorLeft + (int) ($width * .09), $bottom - (int) ($height * .11), 6, 6, $white);
     imagefilledrectangle($image, (int) ($width * .07), (int) ($height * .07), (int) ($width * .29), (int) ($height * .13), $navy);
-    imagestring($image, 5, (int) ($width * .085), (int) ($height * .085), 'LISTORA DEMO', $white);
+    imagestring($image, 5, (int) ($width * .085), (int) ($height * .085), 'LISTORA.NG', $white);
     imagefilledrectangle($image, (int) ($width * .67), (int) ($height * .83), (int) ($width * .94), (int) ($height * .91), $white);
     imagestring($image, 5, (int) ($width * .69), (int) ($height * .855), $label, $navy);
 
@@ -88,8 +88,8 @@ function drawIcon(string $path, int $size, bool $maskable = false): void
 {
     $image = imagecreatetruecolor($size, $size);
     imagesavealpha($image, true);
-    $navy = colour($image, '#0B2A5B');
-    $blue = colour($image, '#155EEF');
+    $navy = colour($image, '#0A2856');
+    $blue = colour($image, '#145FCC');
     $white = colour($image, '#FFFFFF');
     imagefilledrectangle($image, 0, 0, $size, $size, $maskable ? $navy : $white);
     $margin = (int) ($size * ($maskable ? .20 : .10));
@@ -113,4 +113,4 @@ drawIcon($root.'/icons/listora-192.png', 192);
 drawIcon($root.'/icons/listora-512.png', 512);
 drawIcon($root.'/icons/listora-maskable-512.png', 512, true);
 
-echo "Generated Listora demo property and PWA assets.\n";
+echo "Generated Listora property and PWA assets.\n";

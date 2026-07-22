@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BJbCbzLc.css",
+    "file": "assets/app-63sk6_gO.css",
     "name": "app",
     "names": [
       "app.css"
@@ -8,25 +8,25 @@
     "src": "resources/css/app.css",
     "isEntry": true,
     "assets": [
-      "assets/Inter-Regular-COLGFB3M.woff2",
-      "assets/Inter-Medium-CDhBSFyE.woff2",
-      "assets/Inter-SemiBold-BAEEcJ4E.woff2"
+      "assets/Roboto-Regular-CNwBRw8h.woff2",
+      "assets/Roboto-Medium-CkrA1NAy.woff2",
+      "assets/Roboto-SemiBold-aFTKHmff.woff2"
     ]
   },
-  "resources/fonts/Inter-Medium.woff2": {
-    "file": "assets/Inter-Medium-CDhBSFyE.woff2",
-    "src": "resources/fonts/Inter-Medium.woff2"
+  "resources/fonts/Roboto-Medium.woff2": {
+    "file": "assets/Roboto-Medium-CkrA1NAy.woff2",
+    "src": "resources/fonts/Roboto-Medium.woff2"
   },
-  "resources/fonts/Inter-Regular.woff2": {
-    "file": "assets/Inter-Regular-COLGFB3M.woff2",
-    "src": "resources/fonts/Inter-Regular.woff2"
+  "resources/fonts/Roboto-Regular.woff2": {
+    "file": "assets/Roboto-Regular-CNwBRw8h.woff2",
+    "src": "resources/fonts/Roboto-Regular.woff2"
   },
-  "resources/fonts/Inter-SemiBold.woff2": {
-    "file": "assets/Inter-SemiBold-BAEEcJ4E.woff2",
-    "src": "resources/fonts/Inter-SemiBold.woff2"
+  "resources/fonts/Roboto-SemiBold.woff2": {
+    "file": "assets/Roboto-SemiBold-aFTKHmff.woff2",
+    "src": "resources/fonts/Roboto-SemiBold.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BYgFfVWn.js",
+    "file": "assets/app-C4QaM5Y6.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

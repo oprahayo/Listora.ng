@@ -27,7 +27,7 @@ class PropertyFilterRequest extends FormRequest
             'furnishing' => ['nullable', Rule::in(['unfurnished', 'semi-furnished', 'furnished'])],
             'amenities' => ['nullable', 'array', 'max:8'],
             'amenities.*' => [Rule::in(['water', 'security', 'parking', 'power', 'road'])],
-            'sort' => ['nullable', Rule::in(['latest', 'price_asc', 'price_desc'])],
+            'sort' => ['nullable', Rule::in(['recommended', 'latest', 'price_asc', 'price_desc'])],
             'page' => ['nullable', 'integer', 'min:1', 'max:1000'],
         ];
     }

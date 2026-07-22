@@ -1,24 +1,24 @@
 @import 'tailwindcss';
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Regular.woff2') format('woff2');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2');
     font-style: normal;
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.woff2') format('woff2');
     font-style: normal;
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
     font-style: normal;
     font-weight: 600;
     font-display: swap;
@@ -31,23 +31,31 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --color-brand-dark: #0B2A5B;
-    --color-brand: #155EEF;
-    --color-brand-hover: #0E4CC9;
+    --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+    --color-brand-dark: #0A2856;
+    --color-brand: #145FCC;
+    --color-brand-hover: #0E4DA9;
+    --color-brand-light: #EAF2FF;
+    --color-page: #F7F8FA;
+    --color-ink: #182230;
+    --color-secondary: #667085;
+    --color-line: #E4E7EC;
+    --color-success: #178344;
+    --color-warning: #B75D00;
+    --color-error: #C92A2A;
 }
 
 @layer base {
     *, ::before, ::after { border-color: #E4E7EC; }
     html {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
         font-synthesis: none;
     }
-    body { font-size: .875rem; font-weight: 400; }
+    body { overflow-x: clip; font-size: .875rem; font-weight: 400; line-height: 1.45; }
     h1, h2, h3, h4, h5, h6, strong, b { font-weight: 600; }
     button, a, input, select { -webkit-tap-highlight-color: transparent; }
     button:not(:disabled), [role='button']:not([aria-disabled='true']) { cursor: pointer; }
-    :focus-visible { outline-color: #155EEF; }
+    :focus-visible { outline-color: #145FCC; }
     [x-cloak] { display: none !important; }
 }
 
@@ -95,10 +103,10 @@
         border-radius: .65rem;
         padding: .75rem;
         color: #344054;
-        font-weight: 600;
+        font-weight: 500;
     }
-    .menu-link svg { width: 1.25rem; height: 1.25rem; color: #155EEF; }
-    .menu-link:hover { background: #EEF4FF; color: #0B2A5B; }
+    .menu-link svg { width: 1.25rem; height: 1.25rem; color: #145FCC; }
+    .menu-link:hover { background: #EAF2FF; color: #0A2856; }
     .mobile-nav-item {
         display: flex;
         min-height: 3.5rem;
@@ -118,14 +126,14 @@
         justify-content: center;
         gap: .5rem;
         border-radius: .55rem;
-        background: #155EEF;
+        background: #145FCC;
         padding: .7rem 1.15rem;
         color: white;
         font-size: .875rem;
         font-weight: 500;
         transition: background-color 150ms ease, transform 150ms ease;
     }
-    .btn-primary:hover { background: #0E4CC9; }
+    .btn-primary:hover { background: #0E4DA9; }
     .btn-primary:active { transform: translateY(1px); }
     .btn-secondary {
         display: inline-flex;
@@ -137,12 +145,12 @@
         border-radius: .55rem;
         background: white;
         padding: .7rem 1.15rem;
-        color: #0B2A5B;
+        color: #0A2856;
         font-size: .875rem;
         font-weight: 500;
         transition: border-color 150ms ease, background-color 150ms ease;
     }
-    .btn-secondary:hover { border-color: #155EEF; background: #F8FAFF; }
+    .btn-secondary:hover { border-color: #145FCC; background: #F8FAFF; }
     .form-label { display: block; margin-bottom: .4rem; color: #344054; font-size: .8125rem; font-weight: 500; }
     .form-input {
         display: block;
@@ -152,13 +160,13 @@
         border-radius: .55rem;
         background: white;
         padding: .7rem .85rem;
-        color: #172033;
+        color: #182230;
         font-size: .875rem;
         transition: border-color 150ms ease, box-shadow 150ms ease;
     }
-    .form-input:focus { border-color: #155EEF; outline: none; box-shadow: 0 0 0 3px rgb(21 94 239 / .13); }
-    .form-error { margin-top: .35rem; color: #D92D20; font-size: .8rem; font-weight: 500; }
-    .filter-label { display: block; margin-bottom: .45rem; color: #344054; font-size: .8125rem; font-weight: 600; }
+    .form-input:focus { border-color: #145FCC; outline: none; box-shadow: 0 0 0 3px rgb(20 95 204 / .13); }
+    .form-error { margin-top: .35rem; color: #C92A2A; font-size: .8rem; font-weight: 500; }
+    .filter-label { display: block; margin-bottom: .45rem; color: #344054; font-size: .8125rem; font-weight: 500; }
     .filter-input {
         min-height: 2.75rem;
         width: 100%;
@@ -166,15 +174,17 @@
         border-radius: .5rem;
         background: white;
         padding: .6rem .7rem;
-        color: #172033;
+        color: #182230;
         font-size: .875rem;
     }
-    .filter-input:focus { border-color: #155EEF; outline: none; box-shadow: 0 0 0 3px rgb(21 94 239 / .1); }
+    .filter-input:focus { border-color: #145FCC; outline: none; box-shadow: 0 0 0 3px rgb(20 95 204 / .1); }
 
     .home-featured-track {
         display: flex;
+        max-width: 100%;
         gap: .75rem;
         overflow-x: auto;
+        contain: inline-size;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
     }
@@ -187,7 +197,7 @@
 }
 
 @media (min-width: 768px) {
-    body { font-size: 1rem; }
+    body { font-size: .9375rem; }
     .home-featured-track {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));

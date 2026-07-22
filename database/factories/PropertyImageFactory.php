@@ -15,7 +15,7 @@ class PropertyImageFactory extends Factory
             'property_id' => Property::factory(),
             'image_path' => '/images/properties/apartment-1.webp',
             'thumbnail_path' => '/images/properties/apartment-1-thumb.webp',
-            'alt_text' => 'Demonstration property exterior',
+            'alt_text' => 'Property exterior',
             'sort_order' => 0,
             'is_cover' => true,
         ];

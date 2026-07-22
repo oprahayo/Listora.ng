@@ -6,6 +6,7 @@
         @case('search') <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> @break
         @case('map-pin') <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> @break
         @case('bookmark') <path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-4-6 4Z"/> @break
+        @case('heart') <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> @break
         @case('chat') <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/> @break
         @case('user') <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> @break
         @case('plus') <path d="M12 5v14M5 12h14"/> @break
@@ -37,6 +38,8 @@
         @case('info') <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/> @break
         @case('chevron-down') <path d="m6 9 6 6 6-6"/> @break
         @case('chevron-right') <path d="m9 18 6-6-6-6"/> @break
+        @case('arrow-right') <path d="M5 12h14m-6-6 6 6-6 6"/> @break
+        @case('more-horizontal') <circle cx="5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1" fill="currentColor" stroke="none"/> @break
         @case('eye') <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/> @break
         @default <circle cx="12" cy="12" r="9"/> <path d="M12 8v4M12 16h.01"/>
     @endswitch

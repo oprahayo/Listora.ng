@@ -15,6 +15,7 @@ Alpine.data('listoraApp', () => ({
     loginMessage: '',
     mobileMenuOpen: false,
     filterOpen: false,
+    sortOpen: false,
     infoOpen: false,
     savedIds: [],
     savedProperties: [],
@@ -113,6 +114,28 @@ Alpine.data('listoraApp', () => ({
     closeLogin() {
         if (this.loginLoading) return;
         this.loginOpen = false;
+        this.$nextTick(() => this.previousFocus?.focus?.());
+    },
+
+    openFilter() {
+        this.previousFocus = document.activeElement;
+        this.filterOpen = true;
+        this.$nextTick(() => this.$refs.filterClose?.focus());
+    },
+
+    closeFilter() {
+        this.filterOpen = false;
+        this.$nextTick(() => this.previousFocus?.focus?.());
+    },
+
+    openSort() {
+        this.previousFocus = document.activeElement;
+        this.sortOpen = true;
+        this.$nextTick(() => this.$refs.sortClose?.focus());
+    },
+
+    closeSort() {
+        this.sortOpen = false;
         this.$nextTick(() => this.previousFocus?.focus?.());
     },
 

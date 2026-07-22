@@ -21,7 +21,7 @@ Route::post('/auth/otp/request', [OtpController::class, 'store'])->middleware('t
 Route::post('/auth/logout', [SessionController::class, 'destroy'])->middleware('auth')->name('logout');
 Route::get('/auth/csrf-token', fn () => response()->json(['token' => csrf_token()]))->name('csrf.refresh');
 
-Route::view('/join', 'auth.join')->name('join');
+Route::view('/join', 'public.join')->name('join');
 Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
 Route::view('/offline', 'public.offline')->name('offline');
 Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');

@@ -46,21 +46,26 @@ class PropertyController extends Controller
             ->get()
             ->sortBy(fn (Property $property) => $ids->search($property->id))
             ->values()
-            ->map(fn (Property $property) => [
-                'id' => $property->id,
-                'title' => $property->title,
-                'rent' => $property->formatted_rent,
-                'location' => $property->area.', '.$property->city,
-                'url' => route('properties.show', $property),
-                'image' => $property->images->firstWhere('is_cover', true)?->thumbnail_path
-                    ?? $property->images->first()?->thumbnail_path,
-                'image_alt' => $property->images->first()?->alt_text ?? $property->title,
-                'verified' => $property->agent->isVerified(),
-                'facts' => collect([
-                    $property->bedrooms ? $property->bedrooms.' bed' : null,
-                    $property->bathrooms ? $property->bathrooms.' bath' : null,
-                ])->filter()->values(),
-            ]);
+            ->map(function (Property $property): array {
+                $image = $property->images->firstWhere('is_cover', true)?->thumbnail_path
+                    ?? $property->images->first()?->thumbnail_path;
+                $version = $image ? (@filemtime(public_path(ltrim($image, '/'))) ?: 1) : 1;
+
+                return [
+                    'id' => $property->id,
+                    'title' => $property->title,
+                    'rent' => $property->formatted_rent,
+                    'location' => $property->area.', '.$property->city,
+                    'url' => route('properties.show', $property),
+                    'image' => $image ? $image.'?v='.$version : null,
+                    'image_alt' => $property->images->first()?->alt_text ?? $property->title,
+                    'verified' => $property->agent->isVerified(),
+                    'facts' => collect([
+                        $property->bedrooms ? $property->bedrooms.' bed' : null,
+                        $property->bathrooms ? $property->bathrooms.' bath' : null,
+                    ])->filter()->values(),
+                ];
+            });
 
         return response()->json(['properties' => $properties, 'valid_ids' => $properties->pluck('id')]);
     }

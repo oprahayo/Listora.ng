@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'listora-public';
-const VERSION = 'v2';
+const VERSION = 'v3';
 const STATIC_CACHE = `${CACHE_PREFIX}-${VERSION}-static`;
 const PUBLIC_CACHE = `${CACHE_PREFIX}-${VERSION}-public`;
 const CURRENT_CACHES = [STATIC_CACHE, PUBLIC_CACHE];
@@ -21,7 +21,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
     event.waitUntil((async () => {
         const keys = await caches.keys();
-        const oldListoraCaches = keys.filter(key => key.startsWith('listora-') && !CURRENT_CACHES.includes(key));
+        const oldListoraCaches = keys.filter(key => key.toLowerCase().startsWith('listora-') && !CURRENT_CACHES.includes(key));
         await Promise.all(oldListoraCaches.map(key => caches.delete(key)));
         await self.clients.claim();
     })());

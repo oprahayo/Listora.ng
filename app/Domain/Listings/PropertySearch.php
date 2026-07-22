@@ -16,7 +16,7 @@ final class PropertySearch
             ->with(['agent:id,display_name,verification_status,public_slug', 'images', 'amenities']);
 
         $this->applyFilters($query, $filters);
-        $this->applySort($query, $filters['sort'] ?? 'latest');
+        $this->applySort($query, $filters['sort'] ?? 'recommended');
 
         return $query->paginate(12)->withQueryString();
     }
@@ -69,7 +69,8 @@ final class PropertySearch
         match ($sort) {
             'price_asc' => $query->orderBy('annual_rent'),
             'price_desc' => $query->orderByDesc('annual_rent'),
-            default => $query->orderByDesc('published_at'),
+            'latest' => $query->orderByDesc('published_at'),
+            default => $query->orderByDesc('featured')->orderByDesc('published_at'),
         };
     }
 }
