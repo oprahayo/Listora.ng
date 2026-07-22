@@ -186,6 +186,20 @@
     .onboarding-shell { margin-inline: auto; max-width: 40rem; padding: 1.5rem 1rem 2rem; }
     .onboarding-panel { border: 1px solid #D7E2F4; border-radius: .75rem; background: white; padding: 1.25rem; box-shadow: 0 3px 14px rgb(10 40 86 / .06); }
     .dashboard-shell { margin-inline: auto; max-width: 73.75rem; padding: 2rem 1rem; }
+    .private-app-shell { min-height: 100vh; }
+    .private-app-header { position: sticky; top: 0; z-index: 50; height: 3.5rem; background: #0A2856; }
+    .private-header-button { display: inline-flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border-radius: .55rem; color: white; transition: background-color 150ms ease; }
+    .private-header-button:hover { background: rgb(255 255 255 / .1); }
+    .private-app-content { margin-inline: auto; max-width: 73.75rem; min-height: calc(100vh - 3.5rem); padding: 1.25rem 1rem calc(5.25rem + env(safe-area-inset-bottom)); }
+    .private-bottom-nav { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; display: grid; min-height: calc(3.625rem + env(safe-area-inset-bottom)); grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #E4E7EC; background: white; padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -2px 10px rgb(10 40 86 / .05); }
+    .private-bottom-nav-item { display: flex; min-height: 3.625rem; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; color: #667085; font-size: .72rem; font-weight: 500; transition: color 150ms ease; }
+    .private-bottom-nav-item.is-active { color: #145FCC; }
+    .private-desktop-nav { position: sticky; top: 0; width: 14rem; height: 100vh; flex: 0 0 14rem; flex-direction: column; border-right: 1px solid #E4E7EC; background: white; padding: 1.5rem .75rem 1rem; }
+    .private-desktop-link { display: flex; min-height: 2.75rem; align-items: center; gap: .75rem; border-radius: .55rem; padding: .65rem .75rem; color: #475467; font-size: .875rem; font-weight: 500; transition: background-color 150ms ease, color 150ms ease; }
+    .private-desktop-link:hover { background: #F2F4F7; color: #0A2856; }
+    .private-desktop-link.is-active { background: #EAF2FF; color: #145FCC; }
+    .dashboard-action { display: flex; min-height: 4.5rem; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; border: 1px solid #E4E7EC; border-radius: .7rem; background: white; padding: .55rem .25rem; color: #344054; text-align: center; font-size: .75rem; font-weight: 500; transition: border-color 150ms ease, background-color 150ms ease; }
+    .dashboard-action:hover { border-color: #B8C8E1; background: #F8FAFF; }
 
     .home-featured-track {
         display: flex;
@@ -218,10 +232,13 @@
     .onboarding-shell { padding: 2.5rem 1.5rem; }
     .onboarding-panel { padding: 1.75rem; }
     .dashboard-shell { padding: 3rem 1.5rem; }
+    .private-app-content { min-height: 100vh; padding: 2rem 1.5rem; }
 }
 
 @media (min-width: 1024px) {
     .home-featured-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .private-app-shell { display: flex; }
+    .private-app-content { padding: 2.25rem 2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

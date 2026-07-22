@@ -1,6 +1,7 @@
-<x-layouts.public>
+<x-layouts.app>
     @section('title', 'Verify your phone | Listora.ng')
-    <section class="mx-auto max-w-[520px] px-4 py-8 sm:px-6 md:py-12">
+    @section('app_title', 'Verify phone')
+    <section class="mx-auto max-w-[520px]">
         <div class="rounded-xl border border-[#D7E2F4] bg-white p-5 shadow-[0_3px_14px_rgba(10,40,86,.06)] md:p-7">
             <span class="flex size-11 items-center justify-center rounded-lg bg-[#EAF2FF] text-[#145FCC]"><x-icon name="lock" /></span>
             <p class="mt-4 text-xs font-medium text-[#145FCC]">Phone verification</p>
@@ -21,4 +22,4 @@
             <p class="mt-2 text-center text-xs text-[#667085]">A new code can be requested after one minute.</p>
         </div>
     </section>
-</x-layouts.public>
+</x-layouts.app>

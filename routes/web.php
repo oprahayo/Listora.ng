@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\WorkspaceController;
 use App\Http\Controllers\Dashboard\RoleDashboardController;
+use App\Http\Controllers\Dashboard\WorkspacePageController;
 use App\Http\Controllers\Invitations\AgentInvitationController;
 use App\Http\Controllers\Invitations\InvitationController;
 use App\Http\Controllers\NotificationController;
@@ -79,17 +80,42 @@ Route::middleware(['auth', PrivateCachePolicy::class])->group(function (): void 
 
     Route::middleware('role:agent')->group(function (): void {
         Route::get('/agent/dashboard', [RoleDashboardController::class, 'agent'])->name('agent.dashboard');
-        Route::view('/agent/properties', 'auth.dashboard', ['role' => 'agent', 'context' => 'properties'])->name('agent.properties.index');
+        Route::get('/agent/properties', WorkspacePageController::class)->defaults('workspaceRole', 'agent')->defaults('workspacePage', 'properties')->name('agent.properties.index');
+        Route::get('/agent/landlords', WorkspacePageController::class)->defaults('workspaceRole', 'agent')->defaults('workspacePage', 'landlords')->name('agent.landlords');
+        Route::get('/agent/tenants', WorkspacePageController::class)->defaults('workspaceRole', 'agent')->defaults('workspacePage', 'tenants')->name('agent.tenants');
+        Route::get('/agent/more', WorkspacePageController::class)->defaults('workspaceRole', 'agent')->defaults('workspacePage', 'more')->name('agent.more');
         Route::get('/agent/invitations', [AgentInvitationController::class, 'index'])->name('agent.invitations.index');
         Route::post('/agent/invitations', [AgentInvitationController::class, 'store'])->name('agent.invitations.store');
         Route::post('/agent/invitations/{invitation}/resend', [AgentInvitationController::class, 'resend'])->name('agent.invitations.resend');
         Route::delete('/agent/invitations/{invitation}', [AgentInvitationController::class, 'destroy'])->name('agent.invitations.destroy');
     });
-    Route::get('/landlord/dashboard', [RoleDashboardController::class, 'landlord'])->middleware('role:landlord')->name('landlord.dashboard');
-    Route::get('/tenant/dashboard', [RoleDashboardController::class, 'tenant'])->middleware('role:tenant')->name('tenant.dashboard');
-    Route::view('/admin/dashboard', 'auth.dashboard', ['role' => 'admin'])->middleware('role:admin')->name('admin.dashboard');
+    Route::middleware('role:landlord')->group(function (): void {
+        Route::get('/landlord/dashboard', [RoleDashboardController::class, 'landlord'])->name('landlord.dashboard');
+        Route::get('/landlord/properties', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'properties')->name('landlord.properties');
+        Route::get('/landlord/reports', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'reports')->name('landlord.reports');
+        Route::get('/landlord/agents', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'agents')->name('landlord.agents');
+        Route::get('/landlord/approvals', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'approvals')->name('landlord.approvals');
+        Route::get('/landlord/statements', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'statements')->name('landlord.statements');
+        Route::get('/landlord/more', WorkspacePageController::class)->defaults('workspaceRole', 'landlord')->defaults('workspacePage', 'more')->name('landlord.more');
+    });
+    Route::middleware('role:tenant')->group(function (): void {
+        Route::get('/tenant/dashboard', [RoleDashboardController::class, 'tenant'])->name('tenant.dashboard');
+        Route::get('/tenant/bills', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'bills')->name('tenant.bills');
+        Route::get('/tenant/receipts', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'receipts')->name('tenant.receipts');
+        Route::get('/tenant/report-issue', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'issues')->name('tenant.issues');
+        Route::get('/tenant/chat', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'chat')->name('tenant.chat');
+        Route::get('/tenant/documents', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'documents')->name('tenant.documents');
+        Route::get('/tenant/notices', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'notices')->name('tenant.notices');
+        Route::get('/tenant/credit', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'credit')->name('tenant.credit');
+        Route::get('/tenant/refunds', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'refunds')->name('tenant.refunds');
+        Route::get('/tenant/support', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'support')->name('tenant.support');
+        Route::get('/tenant/more', WorkspacePageController::class)->defaults('workspaceRole', 'tenant')->defaults('workspacePage', 'more')->name('tenant.more');
+    });
 
     Route::middleware('role:admin')->group(function (): void {
+        Route::get('/admin/dashboard', [RoleDashboardController::class, 'admin'])->name('admin.dashboard');
+        Route::get('/admin/users', WorkspacePageController::class)->defaults('workspaceRole', 'admin')->defaults('workspacePage', 'users')->name('admin.users');
+        Route::get('/admin/more', WorkspacePageController::class)->defaults('workspaceRole', 'admin')->defaults('workspacePage', 'more')->name('admin.more');
         Route::get('/admin/verifications', [AdminVerificationController::class, 'index'])->name('admin.verifications.index');
         Route::get('/admin/verifications/{verificationRequest}', [AdminVerificationController::class, 'show'])->name('admin.verifications.show');
         Route::post('/admin/verifications/{verificationRequest}/approve', [AdminVerificationController::class, 'approve'])->name('admin.verifications.approve');

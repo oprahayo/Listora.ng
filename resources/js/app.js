@@ -20,6 +20,7 @@ Alpine.data('listoraApp', () => ({
     filterOpen: false,
     sortOpen: false,
     infoOpen: false,
+    profileSheet: false,
     savedIds: [],
     savedProperties: [],
     savedLoading: false,

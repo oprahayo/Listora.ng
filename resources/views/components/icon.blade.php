@@ -41,6 +41,12 @@
         @case('arrow-right') <path d="M5 12h14m-6-6 6 6-6 6"/> @break
         @case('more-horizontal') <circle cx="5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1" fill="currentColor" stroke="none"/> @break
         @case('eye') <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/> @break
+        @case('chart') <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/> @break
+        @case('receipt') <path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9 8h6M9 12h6M9 16h3"/> @break
+        @case('document') <path d="M6 2h8l4 4v16H6Z"/><path d="M14 2v5h5M9 12h6M9 16h6"/> @break
+        @case('alert-circle') <circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/> @break
+        @case('wallet') <path d="M4 6h15a2 2 0 0 1 2 2v11H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h13v3"/><path d="M16 12h5"/> @break
+        @case('logout') <path d="M10 5H4v14h6M14 8l4 4-4 4M18 12H8"/> @break
         @default <circle cx="12" cy="12" r="9"/> <path d="M12 8v4M12 16h.01"/>
     @endswitch
 </svg>

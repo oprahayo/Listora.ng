@@ -1,203 +1,130 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0A2856">
-    <meta name="csrf-token" content="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA">
-    <meta name="description" content="Browse clear, verified property listings from agents across Nigeria with Listora.ng.">
-    <link rel="canonical" href="https://oprahayo.github.io/Listora.ng/offline">
-    <link rel="manifest" href="https://oprahayo.github.io/Listora.ng/manifest.webmanifest">
-    <link rel="icon" href="https://oprahayo.github.io/Listora.ng/images/icons/listora-192.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="https://oprahayo.github.io/Listora.ng/images/icons/listora-192.png">
-    <meta property="og:site_name" content="Listora.ng">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Listora.ng — Find your next property">
-    <meta property="og:description" content="Browse clear, verified property listings from agents across Nigeria with Listora.ng.">
-    <meta property="og:url" content="https://oprahayo.github.io/Listora.ng/offline">
-        <title>Invitations | Listora.ng</title>
-    <link rel="preload" as="style" href="https://oprahayo.github.io/Listora.ng/build/assets/app-DI-kf2fw.css" /><link rel="modulepreload" as="script" href="https://oprahayo.github.io/Listora.ng/build/assets/app-C9nZ_V8z.js" /><link rel="stylesheet" href="https://oprahayo.github.io/Listora.ng/build/assets/app-DI-kf2fw.css" /><script type="module" src="https://oprahayo.github.io/Listora.ng/build/assets/app-C9nZ_V8z.js"></script>    </head>
+    <meta name="csrf-token" content="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Invitations | Listora.ng</title>
+    <link rel="preload" as="style" href="https://oprahayo.github.io/Listora.ng/build/assets/app-ioj19UT3.css" /><link rel="modulepreload" as="script" href="https://oprahayo.github.io/Listora.ng/build/assets/app-C_Pnv5BO.js" /><link rel="stylesheet" href="https://oprahayo.github.io/Listora.ng/build/assets/app-ioj19UT3.css" /><script type="module" src="https://oprahayo.github.io/Listora.ng/build/assets/app-C_Pnv5BO.js"></script>    </head>
 <body x-data="listoraApp()" x-init="init()" class="min-h-screen bg-[#F7F8FA] text-[#182230] antialiased">
-    <a href="#main-content" class="sr-only z-[100] rounded-md bg-white p-3 text-[#0A2856] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
-    <div x-cloak x-show="!online" class="sticky top-0 z-[60] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-sm font-medium text-[#B75D00]" role="status"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <a href="#app-content" class="sr-only z-[100] rounded-md bg-white p-3 text-[#0A2856] focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Skip to content</a>
+    <div x-cloak x-show="!online" class="fixed inset-x-0 top-0 z-[80] flex items-center justify-center gap-2 bg-[#FFF4E8] px-4 py-2 text-center text-xs font-medium text-[#B75D00]" role="status"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
      <path d="m2 2 20 20M8.5 16.5A5 5 0 0 1 12 15c1.4 0 2.6.5 3.5 1.5M5 12.5A10 10 0 0 1 8 10.6M3 8.5A15 15 0 0 1 6 6.6M14.5 9.3A10 10 0 0 1 19 12.5M12 21h.01"/> </svg>
 You’re offline. Your basic progress is saved on this device.</div>
-    <header class="bg-[#0A2856] text-white">
-    <div class="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-0">
-        <div class="flex h-14 items-center justify-between gap-4 md:h-16">
-            <a href="https://oprahayo.github.io/Listora.ng" class="shrink-0 text-lg font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:text-xl" aria-label="Listora.ng home">
-                Listora<span class="text-[#8FB7FF]">.ng</span>
-            </a>
-
-            <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-                <a href="https://oprahayo.github.io/Listora.ng/properties" class="nav-link ">Rent</a>
-                <a href="https://oprahayo.github.io/Listora.ng/properties?type=office" class="nav-link">Commercial</a>
-                <a href="https://oprahayo.github.io/Listora.ng/join#agents" class="nav-link">For Agents</a>
-                <a href="https://oprahayo.github.io/Listora.ng#how-it-works" class="nav-link">How It Works</a>
-            </nav>
-
-            <div class="hidden min-w-0 flex-1 items-center justify-end gap-2 md:flex">
-                <form action="https://oprahayo.github.io/Listora.ng/properties" method="GET" class="hidden items-center xl:flex">
-                    <label class="sr-only" for="header-location">Location</label>
-                    <div class="relative">
-                        <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#8FB7FF]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/> </svg>
-                        <select id="header-location" name="city" onchange="this.form.submit()" class="h-10 appearance-none rounded-l-lg border border-white/20 bg-white/8 pl-9 pr-8 text-sm text-white focus:border-white focus:outline-none">
-                            <option value="" class="text-[#182230]">Nigeria</option>
-                                                            <option value="Lagos"  class="text-[#182230]">Lagos</option>
-                                                            <option value="Abuja"  class="text-[#182230]">Abuja</option>
-                                                            <option value="Port Harcourt"  class="text-[#182230]">Port Harcourt</option>
-                                                            <option value="Ibadan"  class="text-[#182230]">Ibadan</option>
-                                                            <option value="Ado-Ekiti"  class="text-[#182230]">Ado-Ekiti</option>
-                                                    </select>
-                        <svg class="pointer-events-none absolute right-2.5 top-1/2 size-3.5 -translate-y-1/2 text-[#8FB7FF]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m6 9 6 6 6-6"/> </svg>
-                    </div>
-                    <label class="sr-only" for="header-search">Search properties</label>
-                    <div class="relative">
-                        <input id="header-search" name="q" value="" class="h-10 w-44 rounded-r-lg border-y border-r border-white/20 bg-white px-3 pr-9 text-sm text-[#182230] placeholder:text-[#98A2B3] focus:outline-2 focus:outline-[#8FB7FF]" placeholder="Search properties">
-                        <button class="absolute right-1 top-1 flex size-8 items-center justify-center rounded-md text-[#0A2856] hover:bg-[#EAF2FF]" aria-label="Search"><svg class="size-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
-</button>
-                    </div>
-                </form>
-
-                <a href="https://oprahayo.github.io/Listora.ng/saved" class="header-icon" aria-label="Saved properties" title="Saved properties">
-                    <svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
-                    <span x-show="savedIds.length" x-text="savedIds.length" class="absolute -right-1 -top-1 min-w-4 rounded-full bg-white px-1 text-center text-[10px] font-semibold text-[#0A2856]"></span>
-                </a>
-
-                                    <a href="https://oprahayo.github.io/Listora.ng/notifications" class="header-icon" aria-label="Notifications" title="Notifications">
-                        <svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/> </svg>
-                                            </a>
-                    <div x-data="{ profileOpen: false }" @click.outside="profileOpen = false" @keydown.escape.window="profileOpen = false" class="relative">
-                        <button type="button" @click="profileOpen = !profileOpen" :aria-expanded="profileOpen" class="flex h-10 max-w-48 items-center gap-2 rounded-lg border border-white/30 px-3 text-sm font-medium hover:bg-white/10" aria-haspopup="menu">
-                            <svg class="size-4 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> </svg>
-                            <span class="truncate">Adaeze Okafor</span>
-                            <svg class="size-3.5 shrink-0" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m6 9 6 6 6-6"/> </svg>
-                        </button>
-                        <div x-cloak x-show="profileOpen" x-transition class="absolute right-0 top-12 z-50 w-52 rounded-lg border border-[#E4E7EC] bg-white p-2 text-[#182230] shadow-xl" role="menu">
-                            <a href="https://oprahayo.github.io/Listora.ng/dashboard" class="menu-link" role="menuitem"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/> </svg>
-Dashboard</a>
-                                                        <form action="https://oprahayo.github.io/Listora.ng/auth/logout" method="POST"><input type="hidden" name="_token" value="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA" autocomplete="off"><button class="menu-link w-full" role="menuitem"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m15 18-6-6 6-6M9 12h12"/> </svg>
-Sign out</button></form>
-                        </div>
-                    </div>
-                            </div>
-
-            <div class="flex items-center gap-1 md:hidden">
-                <a href="https://oprahayo.github.io/Listora.ng/properties?city=Lagos" class="inline-flex min-h-10 items-center gap-1 rounded-lg px-2 text-[13px] font-medium text-[#EAF1FC] hover:bg-white/10" aria-label="Browse properties in Lagos"><span>Lagos</span><svg class="size-3.5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m6 9 6 6 6-6"/> </svg>
-</a>
-                <a href="https://oprahayo.github.io/Listora.ng/dashboard" class="header-icon" aria-label="Account"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> </svg>
-</a>                <button type="button" @click="mobileMenuOpen = true" class="header-icon" aria-label="Open menu"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M4 6h16M4 12h16M4 18h16"/> </svg>
-</button>
-            </div>
-        </div>
-
-                    <form action="https://oprahayo.github.io/Listora.ng/properties" method="GET" class="pb-4 md:hidden">
-                <label class="sr-only" for="mobile-header-search">Search properties</label>
-                <div class="relative">
-                    <svg class="pointer-events-none absolute left-3.5 top-1/2 size-5 -translate-y-1/2 text-[#667085]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
-                    <input id="mobile-header-search" name="q" class="h-11 w-full rounded-lg border-0 bg-white pl-11 pr-4 text-sm text-[#182230] placeholder:text-[#98A2B3] focus:outline-2 focus:outline-offset-2 focus:outline-[#8FB7FF]" placeholder="Search location or property">
-                </div>
-            </form>
-            </div>
-
-    <div x-cloak x-show="mobileMenuOpen" @keydown.escape.window="mobileMenuOpen = false" class="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
-        <button @click="mobileMenuOpen = false" class="absolute inset-0 bg-[#081B38]/70" aria-label="Close menu"></button>
-        <div x-show="mobileMenuOpen" x-transition:enter="transition duration-150" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" class="absolute inset-y-0 right-0 w-[84%] max-w-sm bg-white p-5 text-[#182230] shadow-2xl">
-            <div class="flex items-center justify-between"><span class="text-xl font-semibold text-[#0A2856]">Listora.ng</span><button @click="mobileMenuOpen = false" class="touch-icon" aria-label="Close menu"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M6 6l12 12M18 6 6 18"/> </svg>
-</button></div>
-            <nav class="mt-8 grid gap-2" aria-label="Mobile menu">
-                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/properties"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
-Rent a property</a>
-                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/properties?type=office"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M5 21V4h10v17M15 9h4v12M8 8h4M8 12h4M8 16h4"/> </svg>
-Commercial</a>
-                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/join#agents"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/> </svg>
-For Agents</a>
-                <a class="menu-link" href="https://oprahayo.github.io/Listora.ng#how-it-works"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/> </svg>
-How It Works</a>
-            </nav>
-                            <div class="mt-8 grid gap-2 border-t border-[#E4E7EC] pt-5">
-                    <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/dashboard"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/> </svg>
-Dashboard</a>
-                    <a class="menu-link" href="https://oprahayo.github.io/Listora.ng/notifications"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/> </svg>
-Notifications </a>
-                                        <form action="https://oprahayo.github.io/Listora.ng/auth/logout" method="POST"><input type="hidden" name="_token" value="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA" autocomplete="off"><button class="menu-link w-full"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="m15 18-6-6 6-6M9 12h12"/> </svg>
-Sign out</button></form>
-                </div>
-                    </div>
-    </div>
-</header>
-    <main id="main-content"><section class="dashboard-shell">
-                <div class="flex items-start justify-between gap-4"><div><p class="text-sm text-[#667085]">Agent workspace</p><h1 class="text-[27px] font-semibold text-[#182230]">Invite a person</h1><p class="mt-1 text-sm text-[#667085]">Connect a landlord or tenant to their Listora account.</p></div><a href="https://oprahayo.github.io/Listora.ng/agent/dashboard" class="btn-secondary">Back</a></div>
-        <div class="mt-5 grid gap-5 lg:grid-cols-[360px_1fr]">
-            <form action="https://oprahayo.github.io/Listora.ng/agent/invitations" method="POST" class="rounded-xl border border-[#D7E2F4] bg-white p-4"><input type="hidden" name="_token" value="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA" autocomplete="off">                <fieldset><legend class="form-label">Invite</legend><div class="grid grid-cols-2 gap-2"><label class="choice-card"><input class="peer sr-only" type="radio" name="intended_role" value="landlord" checked><span class="choice-card-content justify-center">Landlord</span></label><label class="choice-card"><input class="peer sr-only" type="radio" name="intended_role" value="tenant" ><span class="choice-card-content justify-center">Tenant</span></label></div></fieldset>
-                <div class="mt-3"><label class="form-label">Name <span class="font-normal text-[#667085]">Optional</span></label><input name="name" value="" class="form-input"></div>
-                <div class="mt-3"><label class="form-label">Phone</label><input name="phone" value="" inputmode="tel" class="form-input" placeholder="0803 123 4567"></div>
-                <p class="my-2 text-center text-xs text-[#667085]">or</p>
-                <div><label class="form-label">Email</label><input name="email" value="" type="email" class="form-input"></div>
-                                <button class="btn-primary mt-4 w-full">Send invitation</button>
-            </form>
-            <div><h2 class="text-xl font-semibold text-[#182230]">Recent invitations</h2><div class="mt-3 grid gap-3">
-                <article class="rounded-xl border border-[#E4E7EC] bg-white p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="font-semibold text-[#182230]">Samuel Tenant</h3><p class="mt-1 text-sm text-[#667085]">Tenant · expires 28 Jul 2026</p></div><span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#EAF2FF] text-[#0A2856]">
-        Accepted
-</span>
-</div></article>
-                <article class="rounded-xl border border-[#E4E7EC] bg-white p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="font-semibold text-[#182230]">Kemi Landlord</h3><p class="mt-1 text-sm text-[#667085]">Landlord · expires 28 Jul 2026</p></div><span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#F2F4F7] text-[#475467]">
-        Pending
-</span>
-</div><div class="mt-3 flex gap-3 border-t border-[#E4E7EC] pt-3"><form action="https://oprahayo.github.io/Listora.ng/agent/invitations/1/resend" method="POST"><input type="hidden" name="_token" value="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA" autocomplete="off"><button class="min-h-11 text-sm font-medium text-[#145FCC]">Resend</button></form><form action="https://oprahayo.github.io/Listora.ng/agent/invitations/1" method="POST"><input type="hidden" name="_token" value="ZIYl33I1epGAtUujQvNqEPhw1l2gRMCnxUran3oA" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"><button class="min-h-11 text-sm font-medium text-[#C92A2A]">Cancel</button></form></div></article>
-                            </div></div>
-        </div>
-    </section></main>
-    <footer class="border-t border-[#E4E7EC] bg-white pb-20 pt-6 md:pb-8 md:pt-8">
-    <div class="mx-auto flex max-w-[1180px] flex-col gap-4 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-0">
-        <a href="https://oprahayo.github.io/Listora.ng" class="text-lg font-semibold tracking-tight text-[#0A2856]">Listora.ng</a>
-        <nav class="flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-medium text-[#475467] md:text-sm" aria-label="Footer navigation">
-            <a href="https://oprahayo.github.io/Listora.ng/properties" class="hover:text-[#145FCC]">Browse</a>
-            <a href="https://oprahayo.github.io/Listora.ng#how-it-works" class="hover:text-[#145FCC]">How It Works</a>
-            <a href="https://oprahayo.github.io/Listora.ng/join#agents" class="hover:text-[#145FCC]">For Agents</a>
-            <span>Privacy</span>
-            <span>Terms</span>
-        </nav>
-        <p class="text-[13px] text-[#667085]">© 2026 Listora.ng</p>
-    </div>
-</footer>
-    <nav class="fixed inset-x-0 bottom-0 z-30 border-t border-[#E4E7EC] bg-white/95 pb-[max(.4rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-6px_20px_rgba(11,42,91,.08)] backdrop-blur md:hidden" aria-label="Bottom navigation">
-    <div class="grid grid-cols-4">
-        <a href="https://oprahayo.github.io/Listora.ng" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <div class="private-app-shell">
+        <aside class="private-desktop-nav hidden lg:flex">
+    <a href="https://oprahayo.github.io/Listora.ng/dashboard" class="px-3 text-xl font-semibold tracking-tight text-[#0A2856]">Listora<span class="text-[#145FCC]">.ng</span></a>
+    <p class="mt-2 px-3 text-xs font-medium uppercase tracking-[.12em] text-[#667085]">Agent</p>
+    <nav class="mt-6 grid gap-1" aria-label="Workspace navigation">
+                                <a href="https://oprahayo.github.io/Listora.ng/agent/dashboard" class="private-desktop-link " ><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
      <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/> </svg>
 <span>Home</span></a>
-        <a href="https://oprahayo.github.io/Listora.ng/properties" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <a href="https://oprahayo.github.io/Listora.ng/agent/properties" class="private-desktop-link " ><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M4 21V6l8-3 8 3v15M8 9h2m4 0h2M8 13h2m4 0h2M8 17h2m4 0h2"/> </svg>
+<span>Properties</span></a>
+                                <a href="https://oprahayo.github.io/Listora.ng/agent/invitations" class="private-desktop-link " ><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/> </svg>
+<span>People</span></a>
+                                <a href="https://oprahayo.github.io/Listora.ng/agent/more" class="private-desktop-link " ><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/> </svg>
+<span>More</span></a>
+                <a href="https://oprahayo.github.io/Listora.ng/notifications" class="private-desktop-link "><span class="relative"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/> </svg>
+</span><span>Notifications</span></a>
+    </nav>
+    <div class="mt-auto border-t border-[#E4E7EC] pt-4">
+        <button type="button" @click="profileSheet = true" class="flex w-full items-center gap-3 rounded-lg p-3 text-left hover:bg-[#F2F4F7]">
+            <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#EAF2FF] text-xs font-medium text-[#145FCC]">AO</span>
+            <span class="min-w-0"><span class="block truncate text-sm font-medium text-[#182230]">Adaeze Okafor</span><span class="block truncate text-xs text-[#667085]">preview.user@example.invalid</span></span>
+        </button>
+        <form action="https://oprahayo.github.io/Listora.ng/auth/logout" method="POST"><input type="hidden" name="_token" value="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m" autocomplete="off"><button class="private-desktop-link mt-1 w-full"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M10 5H4v14h6M14 8l4 4-4 4M18 12H8"/> </svg>
+Sign out</button></form>
+    </div>
+</aside>
+        <div class="min-w-0 flex-1">
+            <header class="private-app-header lg:hidden">
+    <div class="flex h-14 items-center justify-between gap-2 px-4">
+        <div class="flex min-w-11 flex-1 items-center">
+                            <a href="https://oprahayo.github.io/Listora.ng/agent/dashboard" class="private-header-button" aria-label="Back"><svg class="size-[22px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m15 18-6-6 6-6M9 12h12"/> </svg>
+</a>
+                    </div>
+        <p class="max-w-[42%] truncate text-center text-sm font-medium text-white">Invitations</p>
+        <div class="flex flex-1 items-center justify-end gap-1">
+            <a href="https://oprahayo.github.io/Listora.ng/notifications" class="private-header-button relative" aria-label="Notifications"><svg class="size-[21px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/> </svg>
+</a>
+            <button type="button" @click="profileSheet = true" class="ml-1 flex size-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-xs font-medium text-white" aria-label="Open account menu">AO</button>
+        </div>
+    </div>
+</header>
+            <main id="app-content" class="private-app-content"><section class="mx-auto max-w-[980px]">
+                <div class="mb-5"><h1 class="text-[23px] font-semibold tracking-tight text-[#182230] md:text-[28px]">Invite a person</h1><p class="mt-1 text-sm text-[#667085]">Connect a landlord or tenant to their Listora account.</p></div>
+        <div class="grid gap-5 lg:grid-cols-[360px_1fr]">
+            <form action="https://oprahayo.github.io/Listora.ng/agent/invitations" method="POST" class="rounded-xl border border-[#D7E2F4] bg-white p-4"><input type="hidden" name="_token" value="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m" autocomplete="off">                <fieldset><legend class="form-label">Invite</legend><div class="grid grid-cols-2 gap-2"><label class="choice-card"><input class="peer sr-only" type="radio" name="intended_role" value="landlord" checked><span class="choice-card-content justify-center">Landlord</span></label><label class="choice-card"><input class="peer sr-only" type="radio" name="intended_role" value="tenant" ><span class="choice-card-content justify-center">Tenant</span></label></div></fieldset>
+                <div class="mt-3"><label class="form-label">Name <span class="font-normal text-[#667085]">Optional</span></label><input name="name" value="" class="form-input"></div>
+                <div class="mt-3"><label class="form-label">Phone</label><input name="phone" value="" inputmode="tel" class="form-input" placeholder="0803 123 4567"></div><p class="my-2 text-center text-xs text-[#667085]">or</p>
+                <div><label class="form-label">Email</label><input name="email" value="" type="email" class="form-input"></div>                <button class="btn-primary mt-4 w-full">Send invitation</button>
+            </form>
+            <div><h2 class="text-[17px] font-semibold">Recent invitations</h2><div class="mt-3 grid gap-3"><article class="rounded-xl border border-[#E4E7EC] bg-white p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="font-semibold">Samuel Tenant</h3><p class="mt-1 text-sm text-[#667085]">Tenant · expires 28 Jul 2026</p></div><span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#EAF2FF] text-[#0A2856]">
+        Accepted
+</span>
+</div></article><article class="rounded-xl border border-[#E4E7EC] bg-white p-4"><div class="flex items-start justify-between gap-3"><div><h3 class="font-semibold">Kemi Landlord</h3><p class="mt-1 text-sm text-[#667085]">Landlord · expires 28 Jul 2026</p></div><span class="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium bg-[#F2F4F7] text-[#475467]">
+        Pending
+</span>
+</div><div class="mt-3 flex gap-3 border-t border-[#E4E7EC] pt-3"><form action="https://oprahayo.github.io/Listora.ng/agent/invitations/1/resend" method="POST"><input type="hidden" name="_token" value="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m" autocomplete="off"><button class="min-h-11 text-sm font-medium text-[#145FCC]">Resend</button></form><form action="https://oprahayo.github.io/Listora.ng/agent/invitations/1" method="POST"><input type="hidden" name="_token" value="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"><button class="min-h-11 text-sm font-medium text-[#C92A2A]">Cancel</button></form></div></article></div></div>
+        </div>
+    </section></main>
+            <nav class="private-bottom-nav md:hidden" aria-label="Workspace navigation">
+                    <a href="https://oprahayo.github.io/Listora.ng/agent/dashboard" class="private-bottom-nav-item " >
+            <svg class="size-[22px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/> </svg>
+            <span>Home</span>
+        </a>
+                    <a href="https://oprahayo.github.io/Listora.ng/agent/properties" class="private-bottom-nav-item " >
+            <svg class="size-[22px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M4 21V6l8-3 8 3v15M8 9h2m4 0h2M8 13h2m4 0h2M8 17h2m4 0h2"/> </svg>
+            <span>Properties</span>
+        </a>
+                    <a href="https://oprahayo.github.io/Listora.ng/agent/invitations" class="private-bottom-nav-item " >
+            <svg class="size-[22px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/> </svg>
+            <span>People</span>
+        </a>
+                    <a href="https://oprahayo.github.io/Listora.ng/agent/more" class="private-bottom-nav-item " >
+            <svg class="size-[22px]" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/> </svg>
+            <span>More</span>
+        </a>
+    </nav>
+        </div>
+    </div>
+    <div x-cloak x-show="profileSheet" @keydown.escape.window="profileSheet = false" class="fixed inset-0 z-[85]" role="dialog" aria-modal="true" aria-label="Account menu">
+    <button type="button" @click="profileSheet = false" class="absolute inset-0 bg-[#081B38]/65" aria-label="Close account menu"></button>
+    <section x-show="profileSheet" x-transition:enter="transition duration-150" x-transition:enter-start="translate-y-full opacity-0" x-transition:enter-end="translate-y-0 opacity-100" class="absolute inset-x-0 bottom-0 max-h-[84vh] overflow-y-auto rounded-t-2xl bg-white px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-3 shadow-2xl md:inset-x-auto md:bottom-5 md:right-5 md:w-[360px] md:rounded-2xl">
+        <div class="mx-auto h-1 w-10 rounded-full bg-[#D0D5DD] md:hidden"></div>
+        <div class="mt-4 flex items-start justify-between gap-3"><div class="min-w-0"><h2 class="truncate text-lg font-semibold">Adaeze Okafor</h2><p class="mt-1 truncate text-sm text-[#667085]">preview.user@example.invalid</p><p class="mt-2 text-xs font-medium text-[#145FCC]">Agent workspace</p></div><button type="button" @click="profileSheet = false" class="touch-icon" aria-label="Close"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M6 6l12 12M18 6 6 18"/> </svg>
+</button></div>
+        <nav class="mt-4 grid gap-1" aria-label="Account menu">
+                        <a href="https://oprahayo.github.io/Listora.ng/notifications" class="menu-link"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/> </svg>
+Notifications</a>
+            <a href="https://oprahayo.github.io/Listora.ng/agent/more" class="menu-link"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/> </svg>
+Account settings</a>
+            <a href="https://oprahayo.github.io/Listora.ng/properties" class="menu-link"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
      <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/> </svg>
-<span>Browse</span></a>
-        <a href="https://oprahayo.github.io/Listora.ng/saved" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.5 1-1a5.5 5.5 0 0 0 0-7.8Z"/> </svg>
-<span>Saved</span></a>
-                    <a href="https://oprahayo.github.io/Listora.ng/dashboard" class="mobile-nav-item "><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-     <circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/> </svg>
-<span>Account</span></a>
-            </div>
-</nav>
-        <div x-cloak x-show="toast" x-transition class="fixed bottom-24 left-1/2 z-[80] -translate-x-1/2 rounded-lg bg-[#182230] px-4 py-3 text-sm font-semibold text-white shadow-xl md:bottom-8" role="status" x-text="toast"></div>
+Browse public properties</a>
+            <form action="https://oprahayo.github.io/Listora.ng/auth/logout" method="POST"><input type="hidden" name="_token" value="0VhONrSBLQEPEpa7lD0pFYHeEMeJzZixrBTFGk3m" autocomplete="off"><button class="menu-link w-full text-[#C92A2A]"><svg class="size-5" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+     <path d="M10 5H4v14h6M14 8l4 4-4 4M18 12H8"/> </svg>
+Sign out</button></form>
+        </nav>
+    </section>
+</div>
+    <div x-cloak x-show="toast" x-transition class="fixed bottom-20 left-1/2 z-[90] -translate-x-1/2 rounded-lg bg-[#182230] px-4 py-3 text-sm font-semibold text-white shadow-xl md:bottom-8" role="status" x-text="toast"></div>
 </body>
 </html>

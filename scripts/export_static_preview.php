@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Models\AgentProfile;
+use App\Models\AuditLog;
 use App\Models\Invitation;
 use App\Models\Property;
 use App\Models\User;
@@ -80,6 +81,24 @@ function rewriteForPages(string $html, string $publicBase): string
         $publicBase,
         $html,
     );
+    $html = preg_replace('/[A-Z0-9._%+\-]+@listora\.test/i', 'preview.user@example.invalid', $html);
+    $html = str_replace(['S A M P L E P R I V A T E', 'SAMPLE-PRIVATE'], 'Preview only', $html);
+
+    $html = str_replace(
+        [
+            'admin@listora.test', 'adaeze@listora.test', 'pending.agent@listora.test',
+            'landlord@listora.test', 'tenant@listora.test', 'multi@listora.test',
+            '+2348035550101', '+2348095550103', '+2348015550104', '+2348075550105',
+            '+2348085550106', '+2348055550107',
+        ],
+        [
+            'preview.admin@example.invalid', 'preview.agent@example.invalid', 'preview.agent@example.invalid',
+            'preview.landlord@example.invalid', 'preview.tenant@example.invalid', 'preview.multi@example.invalid',
+            '+234 800 000 0000', '+234 800 000 0000', '+234 800 000 0000', '+234 800 000 0000',
+            '+234 800 000 0000', '+234 800 000 0000',
+        ],
+        $html,
+    );
 
     $html = str_replace(
         ['src="/images/', 'srcset="/images/', 'href="/images/', 'href="/"'],
@@ -103,7 +122,7 @@ function writePage(string $output, string $relativePath, string $html): void
 {
     $directory = $output.'/'.trim($relativePath, '/');
     File::ensureDirectoryExists($directory);
-    File::put($directory.'/index.html', $html);
+    File::put($directory.'/index.html', preg_replace('/[ \t]+$/m', '', $html));
 }
 
 $pages = [
@@ -136,7 +155,14 @@ $privatePreviewPages = [
         'profile' => $verifiedAgent->agent,
         'verification' => null,
         'invitationCounts' => Invitation::query()->where('invited_by', $verifiedAgent->id)->selectRaw('status, count(*) total')->groupBy('status')->pluck('total', 'status'),
+        'recentActivity' => AuditLog::query()->where('user_id', $verifiedAgent->id)->latest()->take(4)->get(),
     ], $verifiedAgent, 'agent'),
+    'pending-agent/dashboard' => renderStaticView('dashboards.agent', [
+        'profile' => $pendingAgent->agent,
+        'verification' => $pendingVerification,
+        'invitationCounts' => Invitation::query()->where('invited_by', $pendingAgent->id)->selectRaw('status, count(*) total')->groupBy('status')->pluck('total', 'status'),
+        'recentActivity' => AuditLog::query()->where('user_id', $pendingAgent->id)->latest()->take(4)->get(),
+    ], $pendingAgent, 'agent'),
     'agent/invitations' => renderStaticView('invitations.agent-index', [
         'invitations' => Invitation::query()->where('invited_by', $verifiedAgent->id)->latest()->paginate(15),
     ], $verifiedAgent, 'agent'),
@@ -148,7 +174,19 @@ $privatePreviewPages = [
         'profile' => $tenant->tenantProfile,
         'invitations' => Invitation::query()->where('intended_role', 'tenant')->latest()->take(5)->get(),
     ], $tenant, 'tenant'),
+    'tenant/more' => renderStaticView('workspace.page', [
+        'title' => 'More', 'message' => 'Manage your tenancy information and account.', 'icon' => 'grid',
+        'back' => 'tenant.dashboard', 'role' => 'tenant', 'page' => 'more', 'profile' => $tenant->tenantProfile,
+    ], $tenant, 'tenant'),
+    'notifications' => renderStaticView('notifications.index', [
+        'notifications' => $verifiedAgent->notifications()->paginate(15),
+    ], $verifiedAgent, 'agent'),
     'workspace' => renderStaticView('auth.workspace', ['roles' => $multi->roles()->orderBy('display_name')->get()], $multi, 'agent'),
+    'admin/dashboard' => renderStaticView('dashboards.admin', [
+        'counts' => VerificationRequest::query()->selectRaw('status, count(*) total')->groupBy('status')->pluck('total', 'status'),
+        'approvedToday' => VerificationRequest::query()->where('status', 'approved')->whereDate('reviewed_at', today())->count(),
+        'recent' => VerificationRequest::query()->with(['user.agent', 'organization'])->whereNotNull('submitted_at')->latest('submitted_at')->take(5)->get(),
+    ], $admin, 'admin'),
     'admin/verifications' => renderStaticView('admin.verifications.index', [
         'requests' => VerificationRequest::query()->with(['user.agent', 'organization'])->where('status', 'submitted')->latest('submitted_at')->paginate(15),
         'counts' => VerificationRequest::query()->selectRaw('status, count(*) as total')->groupBy('status')->pluck('total', 'status'),

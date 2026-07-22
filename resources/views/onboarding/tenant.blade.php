@@ -1,5 +1,7 @@
-<x-layouts.public>
+<x-layouts.app>
     @section('title', 'Tenant setup | Listora.ng')
+    @section('app_title', 'Profile setup')
+    @section('app_back', route('tenant.dashboard'))
     <section class="onboarding-shell"><div class="onboarding-panel">
         <p class="text-xs font-medium text-[#145FCC]">{{ $step }} of 2</p><p class="mt-1 tracking-[.35em] text-[#145FCC]">{{ $step === 1 ? '● ○' : '● ●' }}</p>
         <h1 class="mt-4 text-[26px] font-semibold text-[#182230]">{{ $step === 1 ? 'Confirm your details' : 'Set your preferences' }}</h1>
@@ -16,4 +18,4 @@
             <div class="sticky bottom-[4.4rem] mt-3 flex gap-2 border-t border-[#E4E7EC] bg-white pt-4 md:static">@if($step>1)<button name="direction" value="back" class="btn-secondary">Back</button>@endif<button class="btn-primary flex-1">{{ $step===1?'Continue':'Finish setup' }}</button></div>
         </form>
     </div></section>
-</x-layouts.public>
+</x-layouts.app>

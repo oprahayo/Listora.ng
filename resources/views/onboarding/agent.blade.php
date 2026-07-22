@@ -1,7 +1,9 @@
-<x-layouts.public>
+<x-layouts.app>
     @section('title', 'Agent setup | Listora.ng')
+    @section('app_title', 'Verification')
+    @section('app_back', route('agent.dashboard'))
     @php($draft = $verification->draft_data ?: [])
-    <section class="mx-auto max-w-[640px] px-4 py-6 sm:px-6 md:py-10">
+    <section class="mx-auto max-w-[640px]">
         @if(session('status'))<p class="mb-4 rounded-lg bg-[#EAF2FF] p-3 text-sm text-[#0A2856]">{{ session('status') }}</p>@endif
         <div class="rounded-xl border border-[#D7E2F4] bg-white p-5 shadow-[0_3px_14px_rgba(10,40,86,.06)] md:p-7">
             <div class="flex items-start justify-between gap-4">
@@ -71,11 +73,11 @@
                     @error('documents')<p class="form-error">{{ $message }}</p>@enderror
                 @endif
 
-                <div class="sticky bottom-[4.4rem] -mx-5 mt-6 flex gap-2 border-t border-[#E4E7EC] bg-white px-5 pb-1 pt-4 md:static md:mx-0 md:px-0 md:pb-0">
+                <div class="sticky bottom-[3.6rem] -mx-5 mt-6 flex gap-2 border-t border-[#E4E7EC] bg-white px-5 pb-1 pt-4 md:static md:mx-0 md:px-0 md:pb-0">
                     @if($step > 1)<button name="direction" value="back" class="btn-secondary">Back</button>@endif
                     <button name="direction" value="{{ $step === 4 ? 'submit' : 'next' }}" class="btn-primary flex-1">{{ $step === 4 ? 'Submit for verification' : 'Save and continue' }}</button>
                 </div>
             </form>
         </div>
     </section>
-</x-layouts.public>
+</x-layouts.app>

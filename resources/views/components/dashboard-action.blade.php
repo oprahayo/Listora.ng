@@ -1,0 +1,2 @@
+@props(['icon', 'label', 'href', 'count' => null])
+<a href="{{ $href }}" {{ $attributes->merge(['class' => 'dashboard-action']) }}><span class="relative flex size-9 items-center justify-center rounded-lg bg-[#EAF2FF] text-[#145FCC]"><x-icon :name="$icon" class="size-5" />@if($count)<span class="absolute -right-1.5 -top-1.5 min-w-4 rounded-full bg-[#145FCC] px-1 text-[9px] leading-4 text-white">{{ $count }}</span>@endif</span><span>{{ $label }}</span></a>
